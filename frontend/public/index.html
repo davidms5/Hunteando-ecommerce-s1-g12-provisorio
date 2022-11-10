@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.7.0/hint.min.css">
+    <link rel="stylesheet" href="/Trabajo/style.css">
+    <link rel="stylesheet" href="/Normalize.css">
+    <title>Autogestión Menstrual</title>
+</head>
+<body>
+    <header class="text-center">
+        <div class="spaceOne text-center">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contactos</a>
+                </li>
+              </ul>
+        </div>
+        <div class="spaceTwo">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="https://lh3.googleusercontent.com/tnZrSMQjQultVeIHIHgB3g9TxPIEc3ostFyypblwr6oW2bw7TlClkoOCCxH2VpfjtC5n5JwxjwvwgxjO4oVjFXhBURNdKVrmywOVKiQ88VCNeJjk3HPISFczTHhTpfxcI5WT8KBTctW_EI_W6GHdOipATumoPa1VYk4O5nMl3wXoCaiXBbehY9stse3KdgJpCcLRpSym4z7qxa6nChxe7-3fE46GC0ePWHnjDh6xwLi75zMgwoLlvqbd95RrWAFGrR4_iM5IxiiB3p6JSewdlm8ijNjjx2jRMM5oFB3Btsem1-7EDMW6PFEhJa81Cf7VGSf23_KrOOKf_QbgIS_2J2NiMLu0aBXgKokpy8f394d6ke8QWmlj5W_-k3gmCTAVgY5ecd_4FXVFIruT_oVRYDEPoUnRLDXxG3BgvqbyZTBh2hO2OYVQuJZjoHQo4sDFS2m0LFjjBx36HhlvPkHaWck4PPeBzqtaQulfS34Oa0XwRdZEMtz_TeyfoJGY4bUEeVbOR2XlUCMTyD08JU2ckgEkHgdcOdQ_E-37WkyOje9WW0HvL7BwEQwVP45ks9K6Xkoihro8sQ66RN8oB7_TR2GfH8CeVtAyc9IY8Ys2sjW181z4_2_eh6VaBqDGcN6uri3kUaGeXN3qplChvyQMLVzpkoFgV5nH1R86PYVLkER-QlHm_Fsbn_W4AJ759dqHieUus5JlSlUStN1It7HpRCTjzK0BD1EZghC32GokNhTgC5o5tK7lSknpS90acWC0vKCQklCpwOs8Oc2OHbXX1bRUhd8BLYfFEJJD8g_n-0lvgp9Ie5oJlt7UG5OKoagfdvUgU_TMDNTl_N52DBvhrv6K3xFR4Y3wduq9aw08XBTKWZZH_1ve4I69HMR7siMZrToS2MfCN1fA4vq3nFYsMxapy6Lj5tRpsr14_RBHR7H_=s657-no?authuser=0" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://lh3.googleusercontent.com/a2d_Z9XpMiG8-t4OPLrUI2LUKXnZWIh11hUYAD69sUnUI7oYae0nLEIfXQIgNnEWY9XlQ0Lm_JWfrmBFCFcg0pxG14ywfdyyQa23vg5VWqKtUf35e2-3cA2fc6SUIlUtQoqDb4K7wdcNTpK9LZw9iFVMQ06KT5M7eWd-J0y5DsXFJOJlM9r2Fp_BC6qtkZfp3lEPpyCG_FkD2DR5HPAq9ueVJ63ntZ0TwoNPRsHL0l93R3p8PNAR7SJhuRhPtOCwCQ0p90TGGMo6KjHbyiUDRA4YWJYUmv58r_lxzjGDLvx0UFjogE4UKrp4N5JP5GDLUsWw-mJut4v0XwN5OnPDIzKhlGrt0BNXfkH-lHrSgkxF3LiiDM8Ho2DJMuxI3JwlgiOQwch3_iziMnOckrNWxw_iqHadgDr5qr-Q1EWWLaN4kWTQ9hg_Pz1ubgpgDzvy-nxKO1kWfoNdzV8elYctO3EDQ-ynjSilzSj_lTih03TKfimlJQOBG6VoK1u8ZwcXCRyHuQNy0uxLoUiwMqpNs94SBcKXYGHIMx61rXhW6h1ITi4w2oYgi6IwBYPl98tGOtE2E_Ffdi0tAtfWqEnW_lCsPm0PpIqmu4bKF0_-AYKKnSYdyoc1zQxyS9_TYkTc0T3KwQfOfvkOxQ3ur3JiG-dJsLmFrFFLLpOCSIFhRzDrSttWTHrJtdEhQg3vqtl3dLHiHjkfwicpswiEbfJibEluDPR4dIP2YVSamNCqM6aF2ef3e2mEzkqBjTYjHcvus2J_KbfInLJqcM_CR4PpdFLo9_d4--jwIMha3uXcY4edYEJqDIPyS-H-KSzViWENaMrUcsSkC4msa2zBBxLoxy_P_c1xb8WIg7lBmoiAw9KTlsVIsmlfLNP6Q1C2z4Dd-UOPWiHdpDPTRGGwbzgBc2JjPXy0-XrLYlR8OauzhTmq=w658-h657-no?authuser=0" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="https://lh3.googleusercontent.com/tnZrSMQjQultVeIHIHgB3g9TxPIEc3ostFyypblwr6oW2bw7TlClkoOCCxH2VpfjtC5n5JwxjwvwgxjO4oVjFXhBURNdKVrmywOVKiQ88VCNeJjk3HPISFczTHhTpfxcI5WT8KBTctW_EI_W6GHdOipATumoPa1VYk4O5nMl3wXoCaiXBbehY9stse3KdgJpCcLRpSym4z7qxa6nChxe7-3fE46GC0ePWHnjDh6xwLi75zMgwoLlvqbd95RrWAFGrR4_iM5IxiiB3p6JSewdlm8ijNjjx2jRMM5oFB3Btsem1-7EDMW6PFEhJa81Cf7VGSf23_KrOOKf_QbgIS_2J2NiMLu0aBXgKokpy8f394d6ke8QWmlj5W_-k3gmCTAVgY5ecd_4FXVFIruT_oVRYDEPoUnRLDXxG3BgvqbyZTBh2hO2OYVQuJZjoHQo4sDFS2m0LFjjBx36HhlvPkHaWck4PPeBzqtaQulfS34Oa0XwRdZEMtz_TeyfoJGY4bUEeVbOR2XlUCMTyD08JU2ckgEkHgdcOdQ_E-37WkyOje9WW0HvL7BwEQwVP45ks9K6Xkoihro8sQ66RN8oB7_TR2GfH8CeVtAyc9IY8Ys2sjW181z4_2_eh6VaBqDGcN6uri3kUaGeXN3qplChvyQMLVzpkoFgV5nH1R86PYVLkER-QlHm_Fsbn_W4AJ759dqHieUus5JlSlUStN1It7HpRCTjzK0BD1EZghC32GokNhTgC5o5tK7lSknpS90acWC0vKCQklCpwOs8Oc2OHbXX1bRUhd8BLYfFEJJD8g_n-0lvgp9Ie5oJlt7UG5OKoagfdvUgU_TMDNTl_N52DBvhrv6K3xFR4Y3wduq9aw08XBTKWZZH_1ve4I69HMR7siMZrToS2MfCN1fA4vq3nFYsMxapy6Lj5tRpsr14_RBHR7H_=s657-no?authuser=0" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="blankSpace"></div>
+
+        <div class="spaceThree">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="https://lh3.googleusercontent.com/iHPXMNbTcRN59rz4CqsY6YUX02nWi6F-A-vEgTGHMwWymaQpf_qdD8hZPnxgN9INTE4JBW5vQ0WztivkQXu5089FhE77iFB-g8M3b1ZgmFbmcaXdXLd9uIqAYi_n2SBL4cI6MRXaKb3_nRbIX5mzcjlKkWo-l3fHSSPesi-mWDj0SbroEwS4PrEISwqhV80W_eF34Poseu08wk8flXrElyYCMKm9EkBHyqDcq6KWr-XxX3siE_-WtUGFDfNKQbVOTSmJi5Tnawk3HUH99hc89BdFCKVUJqRDpbCIDUam94bJSpYiSzDOBjPNBW4aE4N4nIaAoDFqTvZ1GbOgfYFJnUNyDsX6sWOGB5ERNyKdGcZT1AG1vIkPHCKOhGy-7HTn4ZlIUPRG0wUqluxnUDeusnoKUL3NPHTlyLYqJv8RtU1aweXoveAitjX1iGQ-R3gmVucXqOR-6V4H3cH2NOWLUAHlt5sML3TRFASq9iU079wOAJ_A_Z7KpX-qEDVpuNbvpHmupdqVGyzdDoTeIQC7LpqqmvPQABMpeRaKqo__9A6P_CqckzOhFy2ybmvFrhpZe16Y0q2D05vQY0llQDOgZW2-Rt2w9I5ApBZyBimrzfH0e5LcI4lygSu9SK2cF1BBVghhr7DG6YWBtOMAFSUKH28naimxDNCNuHyiY6zJawWKQBRWYfrvmD_Guai9X0sr3OyBfmJ_tEPRGX9JvHQ-pmUF5lcli8cY2cZXd8jz5ESakRouD2f0bIKafUSJi7rp7BlEFSmfAM_vdCKMupKQmZYcg3Wm_qRh7T_MKkwlwBhj2m7zLfH4eSFbasaz8JVsMeDcL7t4SLy44KSYLmT1y1Rpvs-MypmLyTMhd1li0RtbkabP3lenL1UTs5rdIFwKYQQojRzcmOXPujwU9ijTV3OvOD-OdJQAoJAfaCNpitem=w907-h645-no?authuser=0" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Toallitas reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card2">
+                    <img src="https://lh3.googleusercontent.com/md7VHhDj7PAonyC1kEHsI_ANiCGChSdTVaJVN6hOEPBEEdopQP15gGq11TEf5L2IIMJOrRMBN4Ous-_1v48F-Fl_mB4LIk24TXINEcOCHxNLGUhbspB31vVJD28EzY5Gu7celKvzPpfIqeVOjBBcp3LWIkaeu1qMm-fUNpbFhMXPobN-EEinSHhRxUQfuhkDvu6RsKEnv68bcUHWz6ijDVP58nfjp0o4MTACJWlR0QOfEFEDqr6NvYXBvCOlLJT_zuOe-NxJaRpYpoFPblejPCjMG7LZIB40DG04zi2D-l2TIIIgH5gQNKlYj84wC-32d_mMyt6Bq7vpXRoTEdmMKclBGqtKeMHYNamHtYs5oUifB3D9D8J0Dr3_WnxLR-7ADfpjKW062OcxcEBTxjHU9YKys72MFvLISj9t2vvni_E8tLDbjPo7s7f8NFtY1T9ZWUNcej-3rkqnEJj9FrUhign8VM_ZVk4jn1Uw0rsMEPMT9ClFQtZ-cbunEpveGu8AaxvGNBuaY3hrivNiLzPhSMhkcAZwSmQPn4ZTvvn4ETHSYzZhj2MBShh29hImdtVCCWgmxl4yG_Bu2uHVse73dZkUt_SkBf4PWT_hXKNd2HTppq4LgjXrcY9Uh1uXYaPcicMovrpPDVqV9MGkBT6ZJMw26ussKpU9EPd6lGJ1mTbVHbffgBGmFkm28-x2tizTBzVBd8ftN9NFmTZIe028CHikl_IzcmOLrkYazWnRDiucOK8lVy8iU12XkDabl_Yw1PqnNuN8fxgn0MDEXSxSWiEdoXlOmNw5na5mAjhqJ-8IOgSY2u_KAMcco55if5mo93JLXevVPiT3pZMKEICVw1d-22Qfc1qC9K0c55jFLy5xtjodxggHHgOQEWwe2DZ9j8-RXAoEkkFmLTyrTRiqfKugbOslz9CW3PWweaL4hpe3=w679-h645-no?authuser=0" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Protectores reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="https://lh3.googleusercontent.com/jSycWj47XPtw45D9R0W5I4tpJvPdv-9HAcE2yVJ7dTxa6Vftvj4KvoK5X4qeXXsOsleQWGdShJsgEhigyb0kphmJWGofzt9127n7qnJAHRhR86uvy2T2R3tNl8XGSBv_lV4G2JhvzLiK8V9S143eLB6eqLcwvHooqskniecbnb6OyPvzANZmQK3WTJamuM-nOjUAdONhGtGzWzQji7IrB5TU4soz8ccg3TAxocsjouO8ufvmlZ0INM7UhvaFEk3QbwTkdVDPcZax1nzia_77zTdSQcij4mvZTqeIZgIcT4qOOOHN6ku6qMMEEUh-Y469muEOvtsoI2QMGVB2g18mH1UwETOtHPqkQOuEbE2FhP_76nZfEbFpIhL1AZBhOeCqE11DquXCsCcAAziWnoInyZOBHJCa_h3VqpP7zUQsaRL4guEDvItXY3V7AuwA_T6bxCOD3gwP7n0yQOF9tz7s9KmPgCgiDTi2z0GMTGEEHUYhSF5IHMpljBdZ9vI4kWBY-TliQeKvrZp3AvZ6RrWfVGFzKkUEFa5_inYq0F0caIgbz6_QmDNO9HUseC8CqfwC-4xR8Qmbpiy_mLKfPHZPj94KjQDVtvS0xYoBnZudKhYslK6rCv4WGELK2ZDp4214irPtBTZnKN2BvxKh64udXPQoecoiIDn1NNfEKAwUkt_yjiFDYoII7-Lz1FCAfzQWhb-0kN29_MldJZWvoF0g59eFi9K7Df4BYLO9d63ZaNhhnmbFnT8J73uagzL9Wiug8QYjCVJvwy07gHCbKWXTujvD8hTg-uU-oadjLTHxe3ZhzZrkvHBz-VJS87gbbCy58G1QlTDp-AkoVFs-AhDsNitiR6t1WM4CVICT9KspjAkap_wQd0palE_BxUtMY2BOVtJg10Yme-EulggNSz92fnfSY38DM3RZfxuMJUMq7RT1=w860-h645-no?authuser=0" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Pañales reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="blankSpace2"></div>
+
+        <div class="spaceFour bg-light">
+            <form class="row g-3">
+                <h3 class="text-center">Contacto</h3>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" id="inputName" placeholder="Nombre">
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Correo electrónico">
+                </div>
+                <div class="col-12">
+                  <input type="textarea" class="form-control" id="inputMessage" placeholder="Mensaje">
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+              </form>
+        </div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Twitter.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/facebook.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Youtube.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Instagram.png">
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
