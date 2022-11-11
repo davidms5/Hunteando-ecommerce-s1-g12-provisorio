@@ -1,6 +1,6 @@
 //importaciones
 const express = require("express");
-const Sequelize = require("sequelize");
+const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 
 
@@ -14,16 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 //configurando el puerto
 const puerto = process.env.port || 3000
  
- //conexion a la base de datos
-const baseDeDatos = new Sequelize('prueba2', 'root', '1234', {
-    host: 'localhost',
-    dialect: 'mysql',
-    define: {timestamps:false}
-
-}); 
-
+ 
 // verificacion de conexion con la tabla
-baseDeDatos.authenticate()
+Sequelize.authenticate()
     .then(() =>{
         console.log("conectado")
     })
@@ -33,7 +26,7 @@ baseDeDatos.authenticate()
 
 
 //llamando un modelo para probar la conexion
-const cliente = require(`${__dirname}/models/cliente`)(baseDeDatos)
+const cliente = require(`${__dirname}/models/cliente`)(Sequelize)
 
 // creando datos para insertar en la tabla clientes
 const clienteNuevo = {
@@ -65,7 +58,18 @@ cliente.findAll()
 
 //una view de prueba
 app.get('/', (request, response) =>{
-    response.send(`<h1>hola mundo</h1>`)
+    //response.send(`<h1>hola mundo</h1>`)
+    cliente.findAll() 
+    .then(datos =>{ 
+        var resultados = JSON.stringify(datos)
+        console.log(resultados)
+        response.json(resultados)
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+ 
+
     
 }); 
 
