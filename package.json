@@ -1,0 +1,24 @@
+{
+  "name": "ecommerce-s1-g12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brayan0726/ecommerce-s1-g12.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brayan0726/ecommerce-s1-g12/issues"
+  },
+  "homepage": "https://github.com/brayan0726/ecommerce-s1-g12#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^2.3.3"
+  }
+}
