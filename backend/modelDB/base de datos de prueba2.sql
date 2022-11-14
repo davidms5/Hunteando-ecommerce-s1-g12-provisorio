@@ -1,6 +1,4 @@
-create database prueba2;
-
-use prueba2;
+use railway;
 
 
 CREATE TABLE CLIENTE (

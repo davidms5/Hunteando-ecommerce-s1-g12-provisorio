@@ -2,7 +2,8 @@
 const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
-
+//configurando el puerto
+const {puerto} = require("./config/config");
 
 const app = express();
 
@@ -10,9 +11,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-//configurando el puerto
-const puerto = process.env.port || 3000
  
  
 // verificacion de conexion con la tabla
