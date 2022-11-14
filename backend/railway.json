@@ -1,0 +1,11 @@
+
+
+
+{
+  "construir": {
+    "constructor": "NIXPACKS"
+  },
+  "desplegar": {
+    "restartPolicyType": "SIEMPRE"
+  }
+}
