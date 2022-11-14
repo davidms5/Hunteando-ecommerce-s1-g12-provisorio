@@ -8,13 +8,15 @@ const {puerto} = require("./config/config");
 const app = express();
 
 //middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
  
  
 // verificacion de conexion con la tabla
-Sequelize.authenticate()
+Sequelize.authenticate()//
     .then(() =>{
         console.log("conectado")
     })
@@ -28,15 +30,15 @@ const cliente = require(`${__dirname}/models/cliente`)(Sequelize)
 
 // creando datos para insertar en la tabla clientes
 const clienteNuevo = {
-    NOMBRE: "eduardo garcia",
-        DIRECCION:"calle laprida 1234",
-        NUMERO_CELULAR: "11446677",
-        NUMERO_TELEFONO: "33445577",
-        EMAIL: "PRUEBA@PRUEBA.COM"
+    NOMBRE: "carla perez",
+        DIRECCION:"avenida poxones 1234",
+        NUMERO_CELULAR: "11445677",
+        NUMERO_TELEFONO: "33445997",
+        EMAIL: "PRUEBA@PRUEBA45.COM"
 }
 
  
-const clientes = cliente.build(clienteNuevo);
+//const clientes = cliente.build(clienteNuevo);
 //clientes.save(); 
 // haciendo una query de la tabla de prueba
 cliente.findAll() 
@@ -60,7 +62,7 @@ app.get('/', (request, response) =>{
     cliente.findAll() 
     .then(datos =>{ 
         var resultados = JSON.stringify(datos)
-        console.log(resultados)
+        console.log(resultados) 
         response.json(resultados)
     })
     .catch(error =>{
@@ -71,6 +73,9 @@ app.get('/', (request, response) =>{
     
 }); 
 
+app.use("/posts", require("./routes/post"))
+
+//app.get("/carrito", (req, res) =>{res.sendFile("../../frontend/public/carrito.html");})
 
 app.listen(puerto, () =>{
     console.log(`proceso iniciado en puerto ${puerto}`)  
