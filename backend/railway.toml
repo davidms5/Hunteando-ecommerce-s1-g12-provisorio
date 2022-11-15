@@ -1,9 +1,12 @@
 
 
 
-[construir]
-constructor = "NIXPACKS"
+[build]
+builder = "nixpacks"
+buildCommand = "echo building!"
 
-[desplegar]
-reiniciarPolicyType = "ON_FAILURE"
-reiniciarPolicyMaxRetries = 15
+[deploy]
+startCommand = "echo starting!"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "never"
