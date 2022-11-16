@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/2.7.0/hint.min.css">
+    <link rel="stylesheet" href="/Trabajo/style.css">
+    <link rel="stylesheet" href="/Bootstrap 5/Normalize.css">
+    <style>
+      .blankSpace{
+        display:inline-table;
+        justify-content:center;
+      }
+      .container{
+        position:relative;
+        display:flex;
+        flex-direction:column;
+        border: solid 2px;
+        border-radius: 10px;
+      }
+      .carrito{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
+      .col-12{
+        display:flex;
+        justify-content: space-evenly;
+        padding:5%;
+      }
+      /*.blankSpace2{
+        height:300px;
+        background: #fff;
+      }*/
+    </style>
+    <title>Autogestión Menstrual</title>
+</head>
+<body>
+    <header class="text-center">
+        <div class="spaceOne text-center">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contactos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Trabajo/index.html">Volver</a>
+                  </li>
+              </ul>
+        </div>
+    </header>
+    <main>
+
+        <div class="blankSpace">
+          <div class="container text-center">
+            <div class="carrito">
+              <h4>carrito <p id="car">(0)</p> </h4><h4>Guardado <p id="saved">(0)</p></h4>
+            </div>
+            <hr style="width:80%;">
+            <h2>TU CARRITO ESTÁ VACÍO</h2><br>
+            <h3>Mira los productos abajo, seguro hay algo que quieres</h3>
+          </div>
+        </div>
+
+        <div class="spaceThree">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card">
+                    <img src="/Trabajo/imagenes y modelos/prod1.jpg" class="card-img-top" alt="..." id="prod">
+                    <div class="card-body">
+                      <h5 class="card-title">Toallitas reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card2">
+                    <img src="/Trabajo/imagenes y modelos/prod2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Protectores reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="/Trabajo/imagenes y modelos/prod3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Pañales reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="/Trabajo/imagenes y modelos/prod1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Toallitas reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card2">
+                    <img src="/Trabajo/imagenes y modelos/prod2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Protectores reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="/Trabajo/imagenes y modelos/prod3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Pañales reutilizables</h5>
+                      <p class="card-text"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <div class="blankSpace2"></div>
+
+    </main>
+    <footer>
+        <div class="col-12">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Twitter.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/facebook.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Youtube.png">
+            <img src="/PRESOCIAL - SOCIAL MEDIA ICON SET - cssauthor.com/round flat/48px/Instagram.png">
+        </div>
+    </footer>
+    <script>
+      function agregar(){
+        var producto = prompt("quieres agregar este producto al carrito?");
+        if (producto == "si" || producto == "Si" || producto == "SI" || producto == "sí" || producto == "Sí" || producto == "SÍ" || producto ==  "yes" || producto ==  "yeah" || producto == "sip"){
+          alert("producto agregado al carrito");
+        } else {
+          alert("producto no agregado al carrito");
+        }
+
+        var cambio = document.getElementById("car");
+        document.getElementById("car").innerHTML="(1)";
+      }
+      var count = 0;
+      function contar(){
+        updateDisplay(++count);
+      }
+      function updateDisplay(val){
+        document.getElementById("car").innerHTML="(" + val + ")"
+      }
+
+      var carrito = document.getElementById("prod");
+      carrito.addEventListener("click", function(){
+        agregar(), contar();
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>
