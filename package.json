@@ -5,7 +5,7 @@
   "main": "src/prueba.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "iniciar": "nodemon src/prueba.js",
+    "iniciar": "nodemon backend/src/prueba.js",
     "start": "node src/prueba.js"
   },
   "keywords": [],
