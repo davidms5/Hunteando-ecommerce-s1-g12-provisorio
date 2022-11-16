@@ -1,29 +1,22 @@
 //importaciones
 const express = require("express");
-const Sequelize = require("sequelize");
+const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
-
+//configurando el puerto
+const {PUERTO} = require("./config/config");
 
 const app = express();
 
 //middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-
-//configurando el puerto
-const puerto = process.env.port || 3000
  
- //conexion a la base de datos
-const baseDeDatos = new Sequelize('prueba2', 'root', '1234', {
-    host: 'localhost',
-    dialect: 'mysql',
-    define: {timestamps:false}
-
-}); 
-
+ 
 // verificacion de conexion con la tabla
-baseDeDatos.authenticate()
+Sequelize.authenticate()//
     .then(() =>{
         console.log("conectado")
     })
@@ -33,19 +26,19 @@ baseDeDatos.authenticate()
 
 
 //llamando un modelo para probar la conexion
-const cliente = require(`${__dirname}/models/cliente`)(baseDeDatos)
+const cliente = require(`${__dirname}/models/cliente`)(Sequelize)
 
 // creando datos para insertar en la tabla clientes
 const clienteNuevo = {
-    NOMBRE: "eduardo garcia",
-        DIRECCION:"calle laprida 1234",
-        NUMERO_CELULAR: "11446677",
-        NUMERO_TELEFONO: "33445577",
-        EMAIL: "PRUEBA@PRUEBA.COM"
+    NOMBRE: "carla perez",
+        DIRECCION:"avenida poxones 1234",
+        NUMERO_CELULAR: "11445677",
+        NUMERO_TELEFONO: "33445997",
+        EMAIL: "PRUEBA@PRUEBA45.COM"
 }
 
  
-const clientes = cliente.build(clienteNuevo);
+//const clientes = cliente.build(clienteNuevo);
 //clientes.save(); 
 // haciendo una query de la tabla de prueba
 cliente.findAll() 
@@ -65,13 +58,27 @@ cliente.findAll()
 
 //una view de prueba
 app.get('/', (request, response) =>{
-    response.send(`<h1>hola mundo</h1>`)
+    //response.send(`<h1>hola mundo</h1>`)
+    cliente.findAll() 
+    .then(datos =>{ 
+        var resultados = JSON.stringify(datos)
+        console.log(resultados) 
+        response.json(resultados)
+    })
+    .catch(error =>{
+        console.log(error)
+    })
+ 
+
     
 }); 
 
+app.use("/posts", require("./routes/post"))
 
-app.listen(puerto, () =>{
-    console.log(`proceso iniciado en puerto ${puerto}`)  
+//app.get("/carrito", (req, res) =>{res.sendFile("../../frontend/public/carrito.html");})
+
+app.listen(PUERTO, () =>{
+    console.log(`proceso iniciado en puerto ${PUERTO}`)  
 });
 
  //---------------------------------------------inicio del server--------------------------------------------
