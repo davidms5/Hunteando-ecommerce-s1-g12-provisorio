@@ -20,6 +20,12 @@
         border: solid 2px;
         border-radius: 10px;
       }
+      .carrito{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+      }
       .col-12{
         display:flex;
         justify-content: space-evenly;
@@ -55,8 +61,10 @@
 
         <div class="blankSpace">
           <div class="container text-center">
-            <h4>carrito (0)</h4><h4>Guardado (0)</h4>
-            <hr>
+            <div class="carrito">
+              <h4>carrito (0)</h4><h4>Guardado (0)</h4>
+            </div>
+            <hr style="width:80%;">
             <h2>TU CARRITO ESTÁ VACÍO</h2><br>
             <h3>Mira los productos abajo, seguro hay algo que quieres</h3>
           </div>
