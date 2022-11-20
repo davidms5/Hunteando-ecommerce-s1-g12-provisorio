@@ -2,6 +2,7 @@
 const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
+const path = require("path")
 //configurando el puerto
 const {PUERTO} = require("./config/config");
 
@@ -75,7 +76,11 @@ app.get('/', (request, response) =>{
 
 app.use("/posts", require("./routes/post"))
 
-//app.get("/carrito", (req, res) =>{res.sendFile("../../frontend/public/carrito.html");})
+app.get("/index", (req, res) => {
+    res.sendFile(__dirname+'/index.html')
+})
+
+app.use(express.static(path.join(__dirname, "../../frontend/public/index.html"))) 
 
 app.listen(PUERTO, () =>{
     console.log(`proceso iniciado en puerto ${PUERTO}`)  
