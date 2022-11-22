@@ -3,7 +3,6 @@ const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
-const router = express.Router()
 //configurando el puerto
 const {PUERTO} = require("./config/config");
 
