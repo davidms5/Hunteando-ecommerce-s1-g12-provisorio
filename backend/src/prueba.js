@@ -4,7 +4,7 @@ const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
 //configurando el puerto
-const {PUERTO} = require("./config/config");
+const {PORT} = require("./config/config");
 
 const app = express();
 
@@ -85,8 +85,8 @@ app.get("/index", (req, res) => {
 
 
 
-app.listen(PUERTO, () =>{
-    console.log(`proceso iniciado en puerto ${PUERTO}`)  
+app.listen(PORT, () =>{
+    console.log(`proceso iniciado en puerto ${PORT}`)  
 });
 
  //---------------------------------------------inicio del server--------------------------------------------
