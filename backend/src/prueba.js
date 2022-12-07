@@ -29,6 +29,7 @@ Sequelize.authenticate()//
 //llamando un modelo para probar la conexion
 const cliente = require(`${__dirname}/models/cliente`)(Sequelize)
 
+
 // creando datos para insertar en la tabla clientes
 const clienteNuevo = {
     NOMBRE: "carla perez",
@@ -76,12 +77,12 @@ app.get('/', (request, response) =>{
 
 app.use("/posts", require("./routes/post"))
 
+
 // middleware para usar el contenido de la carpeta "frontend"
 app.use(express.static("frontend")) 
 
-app.get("/index", (req, res) => {
-    res.sendFile(path.join(__dirname, '../../frontend/index.html'))
-})
+app.use("/index", require("./routes/index"))
+
 
 
 
