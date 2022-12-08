@@ -6,7 +6,7 @@ const DB_USER =process.env.DB_USER || "root"
 
 const DB_PASSWORD =process.env.DB_PASSWORD || "1234"
 
-const DB_NAME =process.env.DB_NAME || "prueba2" // ahora esta como railway
+const DB_NAME =process.env.DB_NAME || "railway" // ahora esta como railway/prueba2
 
  const DB_PORT =process.env.DB_PORT || "3306" 
 

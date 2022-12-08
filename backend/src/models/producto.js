@@ -25,6 +25,15 @@ module.exports = sequelize => {
         model: "cliente_model"
       }
     },
+    IMAGENES: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "IMAGENES"
+    },
     NOMBRE_PRODUCTO: {
       type: DataTypes.STRING(100),
       allowNull: false,

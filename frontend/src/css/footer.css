@@ -1,0 +1,30 @@
+.footer {
+  background-color: #f5f5f5;
+}
+.footer .footer-log {
+  width: 300px;
+  height: 300px;
+  background-color: #f5f5f5;
+
+}
+.footer .footer-log img {
+  width: 100%;
+}
+.footer .footer-redes {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  gap: 30px;
+  font-size: 30px;
+}
+.footer .footer-redes .rede {
+  filter: drop-shadow(1px 3px 2px #010101);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.footer .footer-redes .rede:hover {
+  transform: scale(1.2);
+  color: #8E44AD ;
+}

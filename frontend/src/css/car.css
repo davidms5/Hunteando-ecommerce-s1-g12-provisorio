@@ -1,0 +1,32 @@
+.cart {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.cart .cart-img {
+  width: 30%;
+  filter: drop-shadow(2px 4px 7px #010101);
+}
+
+.cart .cart-button{
+    border: none;
+    padding: 5px 30px;
+    border-radius: 5px;
+    background-color: var(--color-secundary);
+    color: #fff;
+    margin: 40px auto;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.cart .cart-button:hover{
+    transform: scale(1.1);
+}
+/*estyle table*/
+.logoTable{
+  width: 30px;
+  border-radius: 50%;
+}
+.ticket{
+  padding: 20px 30px;
+}
