@@ -3,6 +3,7 @@ const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
+const db = require("./models")
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -13,6 +14,8 @@ const app = express();
 //app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+
 
  
  
@@ -84,7 +87,7 @@ app.use(express.static("frontend"))
 app.use("/index", require("./routes/index"))
 
 
-
+db.sequelize.sync().then(() => { console.log("probando")})
 
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`)  
