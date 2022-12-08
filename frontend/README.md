@@ -1,3 +1,40 @@
+
+# **Frontend Ecommerce Hunteando 12** 
+
+
+# *Info:*
+
+Este es lado frontend del ecommerce desarrollado por el grupo nro 12 de Hunteando.  
+
+
+# Para poder usar el proyecto
+
+### Seguir los siguientes pasos:
+
+- Clonar el repositorio de GitHub:
+
+  ```bash
+  git clone https://github.com/Hunteando/ecommerce-s1-g12
+  ```
+
+- cd dentro del directorio de la carpeta:
+  ```bash
+  cd frontend
+  ```
+
+- Instala las dependencias.
+  ```bash
+  npm install
+  ```
+
+- Para correr el proyecto:
+
+  ```bash
+  npm start
+  ```
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
