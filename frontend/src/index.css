@@ -1,5 +1,6 @@
 :root{
-  --color-primary : #fed8d5
+  --color-primary : #fed8d5;
+  --color-secundary:#8E44AD;
 }
 
 body {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { BsCart3 } from "react-icons/bs";
 import "../css/navBar.css";
 
 const NavBar = () => {
@@ -25,11 +26,18 @@ const NavBar = () => {
           <li className="desktop-li">
             <Link to={"/products"}>Productos</Link>
           </li>
-          <li className="desktop-li">
-            <Link to={"/car"}>Carrito</Link>
-          </li>
+
+          <div className="desktop-car">
+            <Link className="car" to={"/car"}>
+              <BsCart3 />
+              <span className="car-num">0</span>
+            </Link>
+          </div>
         </ul>
-        <div className="mobile" style={{ transform: open? "translateX(0)":"" }}>
+        <div
+          className="mobile"
+          style={{ transform: open ? "translateX(0)" : "" }}
+        >
           <ul>
             <li className="mobile-li" onClick={btn}>
               <Link to={"/"}>Inicio</Link>
@@ -38,7 +46,9 @@ const NavBar = () => {
               <Link to={"/products"}>Productos</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
-              <Link to={"/car"} >Carrito</Link> 
+              <Link to={"/car"}>
+                <BsCart3 />
+              </Link>
             </li>
           </ul>
         </div>
