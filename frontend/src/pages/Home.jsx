@@ -1,6 +1,6 @@
 import React from 'react';
 import fondo from '../assets/fondo.png';
-// import products from '../products.json';
+import products from '../products.json';
 import { Card } from '../components/Card';
 import '../css/home.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,12 +8,12 @@ import { useEffect } from 'react';
 import { getProducts } from '../features/products/thunks';
 
 export const Home = () => {
-  const products = useSelector((state) => state.products.products);
+  // const products = useSelector((state) => state.products.products);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, []);
   console.log(products);
   return (
     <div className="home">

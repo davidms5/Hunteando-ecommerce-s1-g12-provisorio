@@ -1,10 +1,12 @@
-import React from "react";
-import "../css/card.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../css/card.css';
 
 export const Card = ({ title, price, back, id, addId }) => {
+  const navigate = useNavigate();
   return (
     <div className="cards">
-      <div className="card-header">
+      <div onClick={() => navigate(`/detail/${id}`)} className="card-header">
         <img src={back} alt={title} />
       </div>
       <div className="card-body">
