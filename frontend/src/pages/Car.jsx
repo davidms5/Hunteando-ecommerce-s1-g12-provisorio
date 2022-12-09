@@ -1,10 +1,10 @@
-import React from "react";
-import carritoVacio from "../assets/carritoVacio.png";
-import { Link } from "react-router-dom";
-import "../css/car.css";
+import React from 'react';
+import carritoVacio from '../assets/carritoVacio.png';
+import { Link } from 'react-router-dom';
+import '../css/car.css';
 
 //redux
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 const Car = () => {
   const car = useSelector((state) => state.car.car);
@@ -16,13 +16,13 @@ const Car = () => {
           <div className="cart">
             <img className="cart-img" src={carritoVacio} alt="carrito vacio" />
             <h1>CARRITO VACIO</h1>
-            <Link to={"/products"}>
+            <Link to={'/products'}>
               <button className="cart-button">Ir a comprar...</button>
             </Link>
           </div>
         ) : (
           <div className="row">
-          <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
+            <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
             <div className="col-12 col-md-6">
               <table class="table">
                 <thead>
@@ -48,7 +48,6 @@ const Car = () => {
               </table>
             </div>
             <div className=" col-12 col-md-6">
-            
               <div className="ticket my-3">
                 <h1 className="text-center">TICKET DE COMPRA</h1>
                 <form>
