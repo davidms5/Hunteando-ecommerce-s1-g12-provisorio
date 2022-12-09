@@ -31,7 +31,7 @@ module.exports = sequelize => {
       field: "DIRECCION"
     },
     NUMERO_CELULAR: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.STRING(45),
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
@@ -40,7 +40,7 @@ module.exports = sequelize => {
       field: "NUMERO_CELULAR"
     },
     NUMERO_TELEFONO: {
-      type: DataTypes.STRING(8),
+      type: DataTypes.STRING(45),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
