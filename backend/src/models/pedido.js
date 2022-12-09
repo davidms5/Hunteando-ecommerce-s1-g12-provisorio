@@ -8,7 +8,7 @@ module.exports = sequelize => {
       allowNull: false,
       defaultValue: null,
       primaryKey: true,
-      autoIncrement: false,
+      autoIncrement: true,
       comment: null,
       field: "ID_PEDIDO"
     },
@@ -28,11 +28,7 @@ module.exports = sequelize => {
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "ID_CLIENTE",
-      references: {
-        key: "ID_CLIENTE",
-        model: "cliente_model"
-      }
+      field: "ID_CLIENTE"
     },
     ID_DETALLE_PEDIDO: {
       type: DataTypes.INTEGER(11),
@@ -41,11 +37,7 @@ module.exports = sequelize => {
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "ID_DETALLE_PEDIDO",
-      references: {
-        key: "ID_DETALLE_PEDIDO",
-        model: "detalle_pedido_model"
-      }
+      field: "ID_DETALLE_PEDIDO"
     },
     ID_PRODUCTO: {
       type: DataTypes.INTEGER(11),
@@ -101,20 +93,10 @@ module.exports = sequelize => {
     tableName: "pedido",
     comment: "",
     indexes: [{
-      name: "ID_CLIENTE",
-      unique: false,
-      type: "BTREE",
-      fields: ["ID_CLIENTE"]
-    }, {
       name: "ID_PRODUCTO",
       unique: false,
       type: "BTREE",
       fields: ["ID_PRODUCTO"]
-    }, {
-      name: "ID_DETALLE_PEDIDO",
-      unique: false,
-      type: "BTREE",
-      fields: ["ID_DETALLE_PEDIDO"]
     }]
   };
   const PedidoModel = sequelize.define("pedido_model", attributes, options);
