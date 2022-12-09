@@ -84,10 +84,10 @@ app.use("/posts", require("./routes/post"))
 // middleware para usar el contenido de la carpeta "frontend"
 app.use(express.static("frontend")) 
 
-app.use("/index", require("./routes/index"))
+app.use("/index", require("./routes/productos"))
 
 
-db.sequelize.sync().then(() => { console.log("probando")})
+//db.sequelize.sync().then(() => { console.log("probando")})
 
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`)  
