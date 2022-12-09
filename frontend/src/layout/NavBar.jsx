@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const cartLength = useSelector((state) => state.car.car.length);
+  const cartLength = useSelector((state) => state.cart.cart.length);
 
   const btn = () => {
     setOpen(!open);
@@ -30,7 +30,7 @@ const NavBar = () => {
           </li>
 
           <div className="desktop-car">
-            <Link className="car" to={'/car'}>
+            <Link className="car" to={'/cart'}>
               <BsCart3 />
               <span className="car-num"> {cartLength}</span>
             </Link>

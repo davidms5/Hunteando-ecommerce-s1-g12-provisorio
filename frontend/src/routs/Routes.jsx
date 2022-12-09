@@ -4,7 +4,7 @@ import Layout from '../layout/Layout';
 import Products from '../pages/Products';
 import { Home } from '../pages/Home';
 import { Detail } from '../pages/Detail';
-import Car from '../pages/Car';
+import Cart from '../pages/Cart';
 
 const RoutComp = () => {
   return (
@@ -15,7 +15,7 @@ const RoutComp = () => {
             <Route index element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/car" element={<Car />} />
+            <Route path="/cart" element={<Cart />} />
           </Route>
         </Routes>
       </BrowserRouter>

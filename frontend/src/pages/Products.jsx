@@ -3,7 +3,7 @@ import { Card } from '../components/Card';
 
 //redux
 import { useDispatch, useSelector } from 'react-redux';
-import { addCar } from '../features/car/carSlice.js';
+import { addToCart } from '../features/cart/cartSlice.js';
 import { useEffect } from 'react';
 import { getProducts } from '../features/products/thunks';
 
@@ -14,11 +14,10 @@ const Products = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, []);
-  console.log(products);
 
   const addId = (id) => {
     const item = products[id - 1];
-    dispatch(addCar(item));
+    dispatch(addToCart(item));
   };
 
   return (

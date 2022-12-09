@@ -11,6 +11,18 @@ export const Detail = () => {
   useEffect(() => {
     dispatch(getProduct(id));
   }, []);
-  console.log(product);
-  return <div>Detail </div>;
+
+  return (
+    <div className="container detail">
+      <h2>{product.name}</h2>
+      <div className="row">
+        <img className="detail__img col-12 col-md-6 " alt="Articulo en carrito" src={product.image}></img>
+        <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
+          <span>Categoria: {product.gender}</span>
+          <span>Existencia: {product.species}</span>
+          <span>Precio: {product.status}</span>
+        </div>
+      </div>
+    </div>
+  );
 };

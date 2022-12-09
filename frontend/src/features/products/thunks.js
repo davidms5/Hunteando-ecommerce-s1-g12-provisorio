@@ -5,7 +5,7 @@ export const getProducts = () => {
   return async (dispatch) => {
     //TODO: realizar peticion http
     const { data } = await productsApi.get('');
-    console.log(data.results);
+
     dispatch(setProducts({ products: data.results }));
   };
 };

@@ -29,14 +29,14 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products,
-    product: [],
+    product: {},
   },
   reducers: {
     setProducts: (state, action) => {
       state.products = action.payload.products;
     },
     setProduct: (state, action) => {
-      state.product = action.payload;
+      state.product = action.payload.product;
     },
   },
 });

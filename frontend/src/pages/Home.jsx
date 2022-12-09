@@ -3,9 +3,10 @@ import fondo from '../assets/fondo.png';
 import products from '../products.json';
 import { Card } from '../components/Card';
 import '../css/home.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getProducts } from '../features/products/thunks';
+//EL codigo comentado sera utilizado una vez podamos acceder a la api del backend
+// import { useDispatch, useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+// import { getProducts } from '../features/products/thunks';
 
 export const Home = () => {
   // const products = useSelector((state) => state.products.products);
@@ -14,7 +15,7 @@ export const Home = () => {
   // useEffect(() => {
   //   dispatch(getProducts());
   // }, []);
-  console.log(products);
+
   return (
     <div className="home">
       <div className=" container home-img">

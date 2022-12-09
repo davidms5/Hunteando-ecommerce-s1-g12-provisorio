@@ -6,13 +6,13 @@ import '../css/car.css';
 //redux
 import { useSelector } from 'react-redux';
 
-const Car = () => {
-  const car = useSelector((state) => state.car.car);
-  console.log(car);
+const Cart = () => {
+  const cart = useSelector((state) => state.cart.cart);
+  console.log(cart);
   return (
     <div className="cart-container">
       <div className="container">
-        {car.length === 0 ? (
+        {cart.length === 0 ? (
           <div className="cart">
             <img className="cart-img" src={carritoVacio} alt="carrito vacio" />
             <h1>CARRITO VACIO</h1>
@@ -24,7 +24,7 @@ const Car = () => {
           <div className="row">
             <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
             <div className="col-12 col-md-6">
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th scope="col"></th>
@@ -34,10 +34,10 @@ const Car = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {car.map((item, index) => (
-                    <tr>
+                  {cart.map((item, index) => (
+                    <tr key={index}>
                       <th scope="row">
-                        <img className="logoTable" src={item.back} />
+                        <img className="logoTable" alt="articulo" src={item.back} />
                       </th>
                       <td>{item.title}</td>
                       <td>{item.price}</td>
@@ -78,4 +78,4 @@ const Car = () => {
   );
 };
 
-export default Car;
+export default Cart;
