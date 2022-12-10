@@ -37,9 +37,9 @@ const Cart = () => {
                   {cart.map((item, index) => (
                     <tr key={index}>
                       <th scope="row">
-                        <img className="logoTable" alt="articulo" src={item.back} />
+                        <img className="logoTable" alt="articulo" src={item.image} />
                       </th>
-                      <td>{item.title}</td>
+                      <td>{item.name}</td>
                       <td>{item.price}</td>
                       <td>1</td>
                     </tr>
