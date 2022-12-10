@@ -15,9 +15,8 @@ const Products = () => {
     dispatch(getProducts());
   }, []);
 
-  const addId = (id) => {
-    const item = products[id - 1];
-    dispatch(addToCart(item));
+  const addId = (product) => {
+    dispatch(addToCart(product));
   };
 
   return (
@@ -27,13 +26,8 @@ const Products = () => {
         <div className="row">
           {products.map((product, index) => (
             <div key={index} className="col-12 col-sm-6 col-md-4 my-3 d-flex justify-content-center">
-              <Card
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                back={product.back || product.image}
-                addId={addId}
-              />
+              {/* Estas props deben ser modificadas una vez tengamos la API del backend y sepamos cuales son las propiedades de los productos.  */}
+              <Card id={product.id} name={product.name} price={product.price} image={product.image} addId={addId} />
             </div>
           ))}
         </div>

@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 import '../css/car.css';
 
 //redux
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from '../features/cart/cartSlice.js';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
+  const removeItem = (product) => {
+    dispatch(removeFromCart(product));
+  };
   console.log(cart);
   return (
     <div className="cart-container">
@@ -31,6 +36,7 @@ const Cart = () => {
                     <th scope="col">Título</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
+                    <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,7 +47,10 @@ const Cart = () => {
                       </th>
                       <td>{item.name}</td>
                       <td>{item.price}</td>
-                      <td>1</td>
+                      <td>{item.cartQuantity}</td>
+                      <td onClick={() => removeItem(item)} className="text-danger fw-bold">
+                        X
+                      </td>
                     </tr>
                   ))}
                 </tbody>
