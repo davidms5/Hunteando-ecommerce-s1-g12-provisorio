@@ -5,7 +5,7 @@ import '../css/car.css';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../features/cart/cartSlice.js';
+import { removeFromCart, addToCart, decreaseCart, clearCart } from '../features/cart/cartSlice.js';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.cart);
@@ -13,7 +13,16 @@ const Cart = () => {
   const removeItem = (product) => {
     dispatch(removeFromCart(product));
   };
-  console.log(cart);
+  const increaseItem = (product) => {
+    dispatch(addToCart({ product, quantity: 1 }));
+  };
+  const decreaseItem = (product) => {
+    dispatch(decreaseCart({ product }));
+  };
+  const removeAllItem = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <div className="cart-container">
       <div className="container">
@@ -48,9 +57,9 @@ const Cart = () => {
                       <td>{item.name}</td>
                       <td>{item.price}</td>
                       <td>
-                        <button>-</button>
+                        <button onClick={() => decreaseItem(item)}>-</button>
                         {item.cartQuantity}
-                        <button>+</button>
+                        <button onClick={() => increaseItem(item)}>+</button>
                       </td>
                       <td onClick={() => removeItem(item)} className="text-danger fw-bold">
                         X
@@ -59,6 +68,7 @@ const Cart = () => {
                   ))}
                 </tbody>
               </table>
+              <button onClick={() => removeAllItem()}>Vaciar</button>
             </div>
             <div className=" col-12 col-md-6">
               <div className="ticket my-3">

@@ -1,6 +1,5 @@
 import React from 'react';
 import fondo from '../assets/fondo.png';
-// import products from '../products.json';
 import { Card } from '../components/Card';
 import '../css/home.css';
 //EL codigo comentado sera utilizado una vez podamos acceder a la api del backend
@@ -11,6 +10,9 @@ import { getProducts } from '../features/products/thunks';
 
 export const Home = () => {
   const products = useSelector((state) => state.products.products);
+
+  //bestProduct es solo para pintar 3 productos hasta que se decida que productas se renderizaran en el home
+  const bestProducts = [products[0], products[1], products[2]];
   const addId = (product) => {
     dispatch(addToCart(product));
   };
@@ -27,7 +29,7 @@ export const Home = () => {
       <div className="home-products">
         <div className="container py-5">
           <div className="row">
-            {products.map((product, index) => (
+            {bestProducts.map((product, index) => (
               <div key={index} className="col-12 col-sm-6 col-md-4 my-2 d-flex justify-content-center">
                 <Card id={product.id} name={product.name} price={product.price} image={product.image} addId={addId} />
               </div>
