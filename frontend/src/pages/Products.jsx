@@ -3,7 +3,6 @@ import { Card } from '../components/Card';
 
 //redux
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../features/cart/cartSlice.js';
 import { useEffect } from 'react';
 import { getProducts } from '../features/products/thunks';
 
@@ -15,10 +14,6 @@ const Products = () => {
     dispatch(getProducts());
   }, []);
 
-  const addId = (product) => {
-    dispatch(addToCart(product));
-  };
-
   return (
     <div className="container-products mb-5">
       <div className="container">
@@ -27,7 +22,7 @@ const Products = () => {
           {products.map((product, index) => (
             <div key={index} className="col-12 col-sm-6 col-md-4 my-3 d-flex justify-content-center">
               {/* Estas props deben ser modificadas una vez tengamos la API del backend y sepamos cuales son las propiedades de los productos.  */}
-              <Card id={product.id} name={product.name} price={product.price} image={product.image} addId={addId} />
+              <Card id={product.id} name={product.name} price={product.price} image={product.image} />
             </div>
           ))}
         </div>

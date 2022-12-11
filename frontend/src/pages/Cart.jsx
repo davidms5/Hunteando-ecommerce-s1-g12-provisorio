@@ -47,7 +47,11 @@ const Cart = () => {
                       </th>
                       <td>{item.name}</td>
                       <td>{item.price}</td>
-                      <td>{item.cartQuantity}</td>
+                      <td>
+                        <button>-</button>
+                        {item.cartQuantity}
+                        <button>+</button>
+                      </td>
                       <td onClick={() => removeItem(item)} className="text-danger fw-bold">
                         X
                       </td>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProduct } from '../features/products/thunks';
 import { useParams } from 'react-router-dom';
+import ItemCount from '../components/ItemCount';
+
 export const Detail = () => {
   const product = useSelector((state) => state.products.product);
 
@@ -21,6 +23,7 @@ export const Detail = () => {
           <span>Categoria: {product.gender}</span>
           <span>Existencia: {product.species}</span>
           <span>Precio: {product.status}</span>
+          <ItemCount product={product} />
         </div>
       </div>
     </div>
