@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { addToCart } from '../features/cart/cartSlice.js';
 import { useDispatch } from 'react-redux';
+
 const ItemCount = ({ product }) => {
   const [count, setCount] = useState(0);
 

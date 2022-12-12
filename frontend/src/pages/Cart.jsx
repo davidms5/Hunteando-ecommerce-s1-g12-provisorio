@@ -1,15 +1,22 @@
 import React from 'react';
+
 import carritoVacio from '../assets/carritoVacio.png';
 import { Link } from 'react-router-dom';
 import '../css/car.css';
+import ThankYou from '../components/ThankYou';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addToCart, decreaseCart, clearCart } from '../features/cart/cartSlice.js';
 
 const Cart = () => {
-  const cart = useSelector((state) => state.cart.cart);
+  const { cart } = useSelector((state) => state.cart);
+  const { cartTotalAmount } = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
+
+  let orderId = 'orderNumber';
+
   const removeItem = (product) => {
     dispatch(removeFromCart(product));
   };
@@ -90,7 +97,19 @@ const Cart = () => {
                     <span>Total</span>
                     <span>$300</span>
                   </div>
-                  <button>PAGAR</button>
+                  {/* <!-- Boton de agradecimiento modal --> */}
+
+                  <button
+                    onClick={() => console.log('hola')}
+                    type="button"
+                    className="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target={`#${orderId}`}
+                  >
+                    PAGAR
+                  </button>
+
+                  <ThankYou id={orderId} order={cart} total={cartTotalAmount} />
                 </form>
               </div>
             </div>

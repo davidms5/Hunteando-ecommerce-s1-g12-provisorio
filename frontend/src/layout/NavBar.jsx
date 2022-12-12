@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
-  const cartLength = useSelector((state) => state.cart.cart.length);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
 
   const btn = () => {
     setOpen(!open);
@@ -32,7 +32,7 @@ const NavBar = () => {
           <div className="desktop-car">
             <Link className="car" to={'/cart'}>
               <BsCart3 />
-              <span className="car-num"> {cartLength}</span>
+              <span className="car-num"> {cartTotalQuantity}</span>
             </Link>
           </div>
         </ul>
