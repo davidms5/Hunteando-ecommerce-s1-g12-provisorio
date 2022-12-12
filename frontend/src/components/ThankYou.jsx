@@ -1,12 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { clearCart } from '../features/cart/cartSlice';
 
 const ThankYou = ({ total, id, order }) => {
-  const dispatch = useDispatch();
-  const removeAllItem = () => {
-    dispatch(clearCart());
-  };
   return (
     <div
       className="modal fade"
@@ -35,7 +29,7 @@ const ThankYou = ({ total, id, order }) => {
                   <th scope="col">Título</th>
                   <th scope="col">Precio</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col"></th>
+                  <th scope="col">Total</th>
                 </tr>
               </thead>
               <tbody>
@@ -47,13 +41,16 @@ const ThankYou = ({ total, id, order }) => {
                     <td>{item.name}</td>
                     <td>{item.price}</td>
                     <td>{item.cartQuantity}</td>
+                    <td>{item.cartQuantity * item.price}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            <span>Total compra: </span>
+            <span>{total}</span>
           </div>
           <div className="modal-footer">
-            <button onClick={() => removeAllItem()} type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
               Cerrar
             </button>
           </div>

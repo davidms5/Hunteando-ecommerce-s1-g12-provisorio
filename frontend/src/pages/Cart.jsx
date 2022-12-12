@@ -2,7 +2,7 @@ import React from 'react';
 
 import carritoVacio from '../assets/carritoVacio.png';
 import { Link } from 'react-router-dom';
-import '../css/car.css';
+import '../css/cart.css';
 import ThankYou from '../components/ThankYou';
 
 //redux
@@ -12,6 +12,10 @@ import { removeFromCart, addToCart, decreaseCart, clearCart } from '../features/
 const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const { cartTotalAmount } = useSelector((state) => state.cart);
+
+  // Se agrega descuento y delivery falso para probar funcionalidad ELIMINAR LA TENER LA API DEL BACKEND
+  const discount = 100;
+  const delivery = 200;
 
   const dispatch = useDispatch();
 
@@ -53,6 +57,7 @@ const Cart = () => {
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
                     <th scope="col"></th>
+                    <th scope="col">Total</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -64,47 +69,54 @@ const Cart = () => {
                       <td>{item.name}</td>
                       <td>{item.price}</td>
                       <td>
-                        <button onClick={() => decreaseItem(item)}>-</button>
+                        <button className="cart-button" onClick={() => decreaseItem(item)}>
+                          -
+                        </button>
                         {item.cartQuantity}
-                        <button onClick={() => increaseItem(item)}>+</button>
+                        <button className="cart-button" onClick={() => increaseItem(item)}>
+                          +
+                        </button>
                       </td>
                       <td onClick={() => removeItem(item)} className="text-danger fw-bold">
                         X
                       </td>
+                      <td>{item.cartQuantity * item.price}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
-              <button onClick={() => removeAllItem()}>Vaciar</button>
+              <button className="cart-button" onClick={() => removeAllItem()}>
+                Vaciar
+              </button>
             </div>
             <div className=" col-12 col-md-6">
-              <div className="ticket my-3">
+              <div className="ticket my-3 m-md-0 p-0">
                 <h1 className="text-center">TICKET DE COMPRA</h1>
                 <form>
                   <div className="d-flex justify-content-between my-3">
                     <span>Precio :</span>
-                    <span>$300</span>
+                    <span>${cartTotalAmount}</span>
                   </div>
                   <div className="d-flex justify-content-between my-3">
                     <span>Descuento :</span>
-                    <span>$300</span>
+                    <span>-${discount}</span>
                   </div>
                   <div className="d-flex justify-content-between my-3">
                     <span>envio:</span>
-                    <span>$300</span>
+                    <span>${delivery}</span>
                   </div>
                   <div className="d-flex justify-content-between my-3">
                     <span>Total</span>
-                    <span>$300</span>
+                    <span>${cartTotalAmount - discount + delivery}</span>
                   </div>
                   {/* <!-- Boton de agradecimiento modal --> */}
 
                   <button
-                    onClick={() => console.log('hola')}
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary cart-button"
                     data-bs-toggle="modal"
                     data-bs-target={`#${orderId}`}
+                    onClick={() => removeAllItem()}
                   >
                     PAGAR
                   </button>
