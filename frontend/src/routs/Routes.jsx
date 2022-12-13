@@ -5,6 +5,7 @@ import Products from '../pages/Products';
 import { Home } from '../pages/Home';
 import { Detail } from '../pages/Detail';
 import Cart from '../pages/Cart';
+import About from '../pages/About';
 
 const RoutComp = () => {
   return (
@@ -14,6 +15,7 @@ const RoutComp = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/about" element={<About/>} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
           </Route>

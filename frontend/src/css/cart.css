@@ -22,6 +22,15 @@
 .cart-button:hover{
     transform: scale(1.1);
 }
+.cart-alert-delete{
+  position: relative;
+}
+.cart-alert-delete .alert{
+  position: absolute;
+  top: -10%;
+  width: 100%;
+  padding: 3px 20px;
+}
 /*estyle table*/
 .logoTable{
   width: 30px;
