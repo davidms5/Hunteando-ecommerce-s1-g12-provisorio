@@ -1,19 +1,26 @@
-import React from "react";
-import "../css/card.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ItemCount from './ItemCount';
+import '../css/card.css';
 
-export const Card = ({ title, price, back, id, addId }) => {
+/* Creo un nuevo objeto product con datos falsos para poder pintar mientras el backend nos disponibiliza la API real.   */
+
+export const Card = ({ name, price, image, id, addId }) => {
+  const product = { name, price: 300, image, id };
+
+  const navigate = useNavigate();
   return (
     <div className="cards">
-      <div className="card-header">
-        <img src={back} alt={title} />
+      <div onClick={() => navigate(`/detail/${id}`)} className="card-header">
+        <img src={image} alt={name} />
       </div>
       <div className="card-body">
         <div className="card-description">
-          <h5 className="text-center">{title}</h5>
+          <h5 className="text-center">{name}</h5>
           <span>Precio: ${price}</span>
         </div>
         <div className="card-button">
-          <button onClick={() => addId(id)}>add</button>
+          <ItemCount product={product} />
         </div>
       </div>
     </div>
