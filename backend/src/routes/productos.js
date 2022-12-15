@@ -4,12 +4,14 @@ const sequelize = require("../config/db")
 
 const ProductoModel = require("../models/producto")(sequelize);
 
+const {addProductos} = require("../controllers/productos.controllers");
+
 
 //endpoint de producto en especifico
-router.get("/:NOMBRE_PRODUCTO", (req, res) =>{
-    const productos = req.params.NOMBRE_PRODUCTO;
+router.get("/:ID_PRODUCTO", (req, res) =>{
+    const productos = req.params.ID_PRODUCTO;
 
-    ProductoModel.findAll({where:{ NOMBRE_PRODUCTO: productos }}) 
+    ProductoModel.findAll({where:{ ID_PRODUCTO: productos }}) 
     .then(datos =>{ 
         var resultados = JSON.stringify(datos)
         console.log(resultados) 
@@ -31,12 +33,17 @@ router.get("/", async(req, res) =>{
         var resultados = JSON.stringify(datos)
         console.log(resultados) 
         res.json(resultados)
+        // res.json([{\"NOMBRE_PRODUCTO\":\"cosas\",\"IMAGEN\":\"prod1.jpg\",\"PRECIO_VENTA\":5000,\"MARCA\":\"sexas\"},{\"NOMBRE_PRODUCTO\":\"cosas\",\"IMAGEN\":\"prod2.jpg\",\"PRECIO_VENTA\":45000,\"MARCA\":\"sexasasdd\"},{\"NOMBRE_PRODUCTO\":\"arroz\",\"IMAGEN\":\"prod2.jpg\",\"PRECIO_VENTA\":1500,\"MARCA\":\"pan\"}])
     })
     .catch(error =>{
         console.log(error)
     })
    // const TotalProducto = await ProductoModel.FindAll()
    // res.json(TotalProducto);
+
+   
 })
+
+router.post("/add_product", addProductos)
 
 module.exports = router;
