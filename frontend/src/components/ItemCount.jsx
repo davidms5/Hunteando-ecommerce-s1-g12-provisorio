@@ -22,14 +22,14 @@ const ItemCount = ({ product }) => {
   };
   return (
     <div className="d-flex align-items-center gap-1">
-      <button className="px-2" onClick={() => decreaseCount()}>
+      <button className="px-2 btn btn-primary" onClick={() => decreaseCount()}>
         -
       </button>
       <span>{count}</span>
-      <button className="px-2" onClick={() => increaseCount()}>
+      <button className="px-2 btn btn-primary" onClick={() => increaseCount()}>
         +
       </button>
-      <button className="px-2" disabled={count < 1} onClick={() => toAdd(product)}>
+      <button className="px-2 btn btn-primary" disabled={count < 1} onClick={() => toAdd(product)}>
         Agregar
       </button>
     </div>
