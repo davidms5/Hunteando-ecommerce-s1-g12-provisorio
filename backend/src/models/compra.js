@@ -23,18 +23,18 @@ module.exports = (sequelize) => {
         type: Sequelize.INTEGER,
         allowNull: false,
         references:{
-            model: 'producto_model',
+            model: 'producto',
             key: 'ID_PRODUCTO'
         }
     },
     cantidad: {
-        type: Sequelize.INTEGER(500),
+        type: Sequelize.INTEGER(50),
         allowNull: false
     },
     precioTotal: {
         type: Sequelize.DECIMAL,
         allowNull: false
-    },
+    }, 
     fechaDeCompra:{
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
