@@ -42,3 +42,10 @@
 td{
   vertical-align: middle;
 }
+.td-border-none{
+  border-style: hidden
+}
+.start-70{
+  left:70%!important;
+  cursor: pointer;
+}

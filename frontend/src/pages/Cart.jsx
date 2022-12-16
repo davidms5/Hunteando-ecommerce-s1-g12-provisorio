@@ -53,7 +53,9 @@ const Cart = () => {
         ) : (
           <div className="row">
             <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
+
             <div className="cart-alert-delete col-12 col-md-6">
+              <h2 className="text-center">PRODUCTOS</h2>
               {mostrar ? (
                 <div className="alert alert-danger" role="alert">
                   Producto eliminado
@@ -61,20 +63,20 @@ const Cart = () => {
               ) : (
                 <></>
               )}
-              <table className="table">
-                <thead>
+              <table className="table td-border-none ">
+                <thead className="td-border-none">
                   <tr>
                     <th scope="col"></th>
                     <th scope="col">Título</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
-                    <th scope="col"></th>
+
                     <th scope="col">Total</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="td-border-none">
                   {cart.map((item, index) => (
-                    <tr key={index}>
+                    <tr className="shadow-sm rounded td-border-none" key={index}>
                       <th scope="row">
                         <img className="logoTable" alt="articulo" src={item.image} />
                       </th>
@@ -89,10 +91,16 @@ const Cart = () => {
                           +
                         </button>
                       </td>
-                      <td onClick={() => removeItem(item)} className="text-danger fw-bold">
-                        X
+
+                      <td className="position-relative">
+                        {item.cartQuantity * item.price}
+                        <span
+                          onClick={() => removeItem(item)}
+                          className=" text-danger p-1 fw-semibold position-absolute top-0 start-70"
+                        >
+                          x
+                        </span>
                       </td>
-                      <td>{item.cartQuantity * item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -103,7 +111,7 @@ const Cart = () => {
             </div>
             <div className=" col-12 col-md-6">
               <div className="ticket my-3 m-md-0 p-0">
-                <h1 className="text-center">TICKET DE COMPRA</h1>
+                <h2 className="text-center">TICKET DE COMPRA</h2>
                 <form>
                   <div className="d-flex justify-content-between my-3">
                     <span>Precio :</span>

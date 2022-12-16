@@ -5,7 +5,7 @@ import '../css/card.css';
 
 /* Creo un nuevo objeto product con datos falsos para poder pintar mientras el backend nos disponibiliza la API real.   */
 
-export const Card = ({ name, price, image, id, addId }) => {
+export const Card = ({ NOMBRE_PRODUCTO, PRECIO_VENTA, MARCA, IMAGEN, id, addId }) => {
   const product = { name, price: 300, image, id };
 
   const navigate = useNavigate();
