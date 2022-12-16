@@ -3,7 +3,6 @@ const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
-const db = require("./models")
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -29,54 +28,14 @@ Sequelize.authenticate()//
     })
 
 
-//llamando un modelo para probar la conexion
-const cliente = require(`${__dirname}/models/cliente`)(Sequelize)
-
-
-// creando datos para insertar en la tabla clientes
-const clienteNuevo = {
-    NOMBRE: "carla perez",
-        DIRECCION:"avenida poxones 1234",
-        NUMERO_CELULAR: "11445677",
-        NUMERO_TELEFONO: "33445997",
-        EMAIL: "PRUEBA@PRUEBA45.COM"
-}
-
- 
-//const clientes = cliente.build(clienteNuevo);
-//clientes.save(); 
-// haciendo una query de la tabla de prueba
-cliente.findAll() 
-    .then(datos =>{ 
-        var resultados = JSON.stringify(datos)
-        console.log(resultados)
-    })
-    .catch(error =>{
-        console.log(error)
-    })
- 
-
 
 //--------------------------------------------------base de datos -----------------------------------//
  
  
 
-//una view de prueba
-app.get('/', (request, response) =>{
-    //response.send(`<h1>hola mundo</h1>`)
-    cliente.findAll() 
-    .then(datos =>{ 
-        var resultados = JSON.stringify(datos)
-        console.log(resultados) 
-        response.json(resultados)
-    })
-    .catch(error =>{
-        console.log(error)
-    })
- 
-
-    
-}); 
+app.use("/", (req, res) => {
+    res.send("<h1> vista de prueba</h1>")
+})
 
 app.use("/posts", require("./routes/post"))
 
@@ -86,8 +45,11 @@ app.use(express.static("frontend"))
 
 app.use("/products", require("./routes/productos"))
 
-
-//db.sequelize.sync().then(() => { console.log("probando")})
+app.use("/carrito", require("./routes/compras"))
+ 
+Sequelize.sync()
+.then(() => { console.log("probando")})
+.catch(error => console.error('Error sincronizando las tablas', error));
 
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`)  
