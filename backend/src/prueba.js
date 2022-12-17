@@ -3,6 +3,7 @@ const express = require("express");
 const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
+const cors = require("cors");
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -13,7 +14,7 @@ const app = express();
 //app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
+app.use(cors());
 
 
  
@@ -33,9 +34,9 @@ Sequelize.authenticate()//
  
  
 
-app.use("/", (req, res) => {
-    res.send("<h1> vista de prueba</h1>")
-})
+//app.use("/", (req, res) => {
+//    res.send("<h1> vista de prueba</h1>")
+//})
 
 app.use("/posts", require("./routes/post"))
 
