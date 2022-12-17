@@ -1,0 +1,9 @@
+.contact .error{
+    color: #ff0000;
+    font-size: 12px;
+    position: absolute;
+    bottom: -15px;
+}
+.contact input:focus{
+    outline: none;
+}
