@@ -2,44 +2,44 @@ const { Sequelize } = require('sequelize');
 
 module.exports = (sequelize) => {
   const compras = sequelize.define('compras', {
-    id: {
+    ID: {
       type: Sequelize.UUID(20),
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true
     },
-    Nombre: {
+    NOMBRE: {
       type: Sequelize.STRING(50),
       allowNull: false
     },
-    Apellido: {
+    APELLIDO: {
       type: Sequelize.STRING(50),
       allowNull: false
     },
-    Email: {
+    EMAIL: {
       type: Sequelize.STRING(50),
       allowNull: false
     },
-    ProductoId: {
+    PRODUCTO_ID: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references:{
-            model: 'producto_model',
+            model: 'producto',
             key: 'ID_PRODUCTO'
         }
     },
-    cantidad: {
-        type: Sequelize.INTEGER(500),
+    CANTIDAD: {
+        type: Sequelize.INTEGER(50),
         allowNull: false
     },
-    precioTotal: {
+    PRECIO_TOTAKL: {
         type: Sequelize.DECIMAL,
         allowNull: false
-    },
-    fechaDeCompra:{
+    }, 
+    FECHA_DE_COMPRA:{
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     },
-    medioDePago: {
+    MEDIO_DE_PAGO: {
         type: Sequelize.STRING,
         allowNull: false // modificar este campo para que acepte medios de pago en especifico
     }
