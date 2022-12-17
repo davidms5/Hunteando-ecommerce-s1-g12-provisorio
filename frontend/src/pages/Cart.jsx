@@ -78,10 +78,10 @@ const Cart = () => {
                   {cart.map((item, index) => (
                     <tr className="shadow-sm rounded td-border-none" key={index}>
                       <th scope="row">
-                        <img className="logoTable" alt="articulo" src={item.image} />
+                        <img className="logoTable" alt="articulo" src={require('../assets/' + item.IMAGEN)} />
                       </th>
-                      <td>{item.name}</td>
-                      <td>{item.price}</td>
+                      <td>{item.NOMBRE_PRODUCTO}</td>
+                      <td>{item.PRECIO_VENTA}</td>
                       <td>
                         <button className="cart-button" onClick={() => decreaseItem(item)}>
                           -
@@ -93,7 +93,7 @@ const Cart = () => {
                       </td>
 
                       <td className="position-relative">
-                        {item.cartQuantity * item.price}
+                        {item.cartQuantity * item.PRECIO_VENTA}
                         <span
                           onClick={() => removeItem(item)}
                           className=" text-danger p-1 fw-semibold position-absolute top-0 start-70"

@@ -15,18 +15,24 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="container-products mb-5">
-      <div className="container">
-        <h1 className="text-center my-5">PRODUCTOS</h1>
-        <div className="row">
-          {products.map((product, index) => (
-            <div key={index} className="col-12 col-sm-6 col-md-4 my-3 d-flex justify-content-center">
-              {/* Estas props deben ser modificadas una vez tengamos la API del backend y sepamos cuales son las propiedades de los productos.  */}
-              <Card id={product.id} name={product.name} price={product.price} image={product.image} />
+    <div>
+      {products.length === 0 ? (
+        <div></div>
+      ) : (
+        <div className="container-products mb-5">
+          <div className="container">
+            <h1 className="text-center my-5">PRODUCTOS</h1>
+            <div className="row">
+              {products.map((product, index) => (
+                <div key={index} className="col-12 col-sm-6 col-md-4 my-3 d-flex justify-content-center">
+                  {/* Estas props deben ser modificadas una vez tengamos la API del backend y sepamos cuales son las propiedades de los productos.  */}
+                  <Card product={product} />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

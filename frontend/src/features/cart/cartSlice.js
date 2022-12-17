@@ -9,7 +9,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addToCart(state, action) {
-      const itemIndex = state.cart.findIndex((item) => item.id === action.payload.product.id);
+      const itemIndex = state.cart.findIndex((item) => item.ID_PRODUCTO === action.payload.product.ID_PRODUCTO);
 
       if (itemIndex >= 0) {
         state.cart[itemIndex].cartQuantity += action.payload.quantity;
@@ -22,17 +22,17 @@ const cartSlice = createSlice({
     },
 
     decreaseCart(state, action) {
-      const itemIndex = state.cart.findIndex((item) => item.id === action.payload.product.id);
+      const itemIndex = state.cart.findIndex((item) => item.ID_PRODUCTO === action.payload.product.ID_PRODUCTO);
 
       if (state.cart[itemIndex].cartQuantity > 1) {
         state.cart[itemIndex].cartQuantity -= 1;
         return;
       }
 
-      state.cart = state.cart.filter((item) => item.id !== action.payload.product.id);
+      state.cart = state.cart.filter((item) => item.ID_PRODUCTO !== action.payload.product.ID_PRODUCTO);
     },
     removeFromCart(state, action) {
-      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
+      state.cart = state.cart.filter((item) => item.ID_PRODUCTO !== action.payload.ID_PRODUCTO);
     },
     clearCart(state) {
       state.cart = [];
@@ -40,8 +40,9 @@ const cartSlice = createSlice({
     getTotals(state, action) {
       let { total, quantity } = state.cart.reduce(
         (cartTotal, cartItem) => {
-          const { price, cartQuantity } = cartItem;
-          const itemTotal = price * cartQuantity;
+          const { PRECIO_VENTA, cartQuantity } = cartItem;
+          console.log('price', PRECIO_VENTA);
+          const itemTotal = PRECIO_VENTA * cartQuantity;
 
           cartTotal.total += itemTotal;
           cartTotal.quantity += cartQuantity;

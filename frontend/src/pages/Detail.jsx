@@ -15,17 +15,23 @@ export const Detail = () => {
   }, []);
 
   return (
-    <div className="container detail">
-      <h2>{product.name}</h2>
-      <div className="row">
-        <img className="detail__img col-12 col-md-6 " alt="Articulo en carrito" src={product.image}></img>
-        <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
-          <span>Categoria: {product.gender}</span>
-          <span>Existencia: {product.species}</span>
-          <span>Precio: {product.status}</span>
-          <ItemCount product={product} />
+    <div>
+      {!product ? (
+        <div>hola</div>
+      ) : (
+        <div className="container detail">
+          <h2>{product.NOMBRE_PRODUCTO}</h2>
+          <div className="row">
+            <img className="detail__img col-12 col-md-6 " src={product.IMAGEN} alt={product.NOMBRE_PRODUCTO} />
+            <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
+              <span>marca: {product.MARCA}</span>
+
+              <span>Precio: {product.PRECIO_VENTA}</span>
+              <ItemCount product={product} />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

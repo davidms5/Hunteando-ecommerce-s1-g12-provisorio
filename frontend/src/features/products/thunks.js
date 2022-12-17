@@ -1,19 +1,19 @@
 import { productsApi } from '../../api/productsApi';
 import { setProducts, setProduct } from './productsSlice';
-import axios from 'axios';
+
 export const getProducts = () => {
   return async (dispatch) => {
     //TODO: realizar peticion http
-    const { data } = await productsApi.get('');
+    const { data } = await productsApi.get('/products');
 
-    dispatch(setProducts({ products: data.results }));
+    dispatch(setProducts({ products: data }));
   };
 };
 export const getProduct = (id) => {
   return async (dispatch) => {
     //TODO: realizar peticion http
     // const { data } = await productsApi.get(`2`);
-    const { data } = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
+    const { data } = await productsApi.get(`/products/${id}`);
 
     dispatch(setProduct({ product: data }));
   };
