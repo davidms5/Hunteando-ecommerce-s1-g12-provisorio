@@ -46,7 +46,7 @@ app.use(express.static("frontend"))
 
 app.use("/products", require("./routes/productos"))
 
-app.use("/carrito", require("./routes/compras"))
+app.use("/cart", require("./routes/compras"))
  //error de sincronizacion de la tabla compras
 Sequelize.sync()
 .then(() => { console.log("probando")})
