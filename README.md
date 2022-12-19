@@ -15,5 +15,5 @@ correciones del back: para hacer las pruebas de los productos traidos de la base
 para mostrar, actualizar o borrar 1 articulo en especifico, en la url despues del localhost colocar "/products/ID_del_articulo_de_prueba", para mostrar los datos de ese producto en
 particular
 
-actualizacion:
 
+los endpoints de la tabla carrito se acceden de la misma manera que /products, solo hay que cambiarlo a que diga "/cart"
