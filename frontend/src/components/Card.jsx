@@ -14,9 +14,13 @@ export const Card = ({ product }) => {
       {!product ? (
         <div>HOla</div>
       ) : (
-        <div className="cards">
+        <div className="cards h-100 pb-2">
           <div onClick={() => navigate(`/detail/${product.ID_PRODUCTO}`)} className="card-header">
-            {/* <img className="img-fluid" src={require('../assets/' + product.IMAGEN)} alt={product.NOMBRE_PRODUCTO} /> */}
+            <img
+              className="img-fluid card-header-img"
+              src={product.IMAGEN ? product.IMAGEN : require('../assets/no-disponible.png')}
+              alt={product.NOMBRE_PRODUCTO}
+            />
           </div>
           <div className="card-body">
             <div className="card-description">

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
 import carritoVacio from '../assets/carritoVacio.png';
 import { Link } from 'react-router-dom';
 import '../css/cart.css';
-import ThankYou from '../components/ThankYou';
+import CartForm from '../components/CartForm';
+import { BsTrash } from 'react-icons/bs';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,7 +20,7 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
-  let orderId = 'orderNumber';
+  let orderId = 'prueba';
 
   const removeItem = (product) => {
     dispatch(removeFromCart(product));
@@ -78,28 +78,34 @@ const Cart = () => {
                   {cart.map((item, index) => (
                     <tr className="shadow-sm rounded td-border-none" key={index}>
                       <th scope="row">
-                        <img className="logoTable" alt="articulo" src={require('../assets/' + item.IMAGEN)} />
+                        <img
+                          className="logoTable"
+                          alt="articulo"
+                          src={item.IMAGEN ? item.IMAGEN : require('../assets/no-disponible.png')}
+                        />
                       </th>
                       <td>{item.NOMBRE_PRODUCTO}</td>
                       <td>{item.PRECIO_VENTA}</td>
                       <td>
-                        <button className="cart-button" onClick={() => decreaseItem(item)}>
-                          -
-                        </button>
-                        {item.cartQuantity}
-                        <button className="cart-button" onClick={() => increaseItem(item)}>
-                          +
-                        </button>
+                        <div className="cart-buttons-container">
+                          <button className="cart-button" onClick={() => decreaseItem(item)}>
+                            -
+                          </button>
+                          <span className="px-2 ">{item.cartQuantity}</span>
+                          <button className="cart-button" onClick={() => increaseItem(item)}>
+                            +
+                          </button>
+                        </div>
                       </td>
 
                       <td className="position-relative">
                         {item.cartQuantity * item.PRECIO_VENTA}
-                        <span
+                        <div
                           onClick={() => removeItem(item)}
-                          className=" text-danger p-1 fw-semibold position-absolute top-0 start-70"
+                          className="d-flex justify-content-center align-tems-center p-1 text-danger fw-semibold position-absolute top-0 start-72"
                         >
-                          x
-                        </span>
+                          <BsTrash />
+                        </div>
                       </td>
                     </tr>
                   ))}
@@ -130,21 +136,10 @@ const Cart = () => {
                     <span>${cartTotalAmount - discount + delivery}</span>
                   </div>
                   {/* <!-- Boton de agradecimiento modal --> */}
-
-                  <button
-                    type="button"
-                    className="btn btn-primary cart-button"
-                    data-bs-toggle="modal"
-                    data-bs-target={`#${orderId}`}
-                    onClick={() => removeAllItem()}
-                  >
-                    PAGAR
-                  </button>
-
-                  <ThankYou id={orderId} order={cart} total={cartTotalAmount} />
                 </form>
               </div>
             </div>
+            <CartForm orderId={orderId} order={cart} total={cartTotalAmount} />
           </div>
         )}
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { addToCart } from '../features/cart/cartSlice.js';
 import { useDispatch } from 'react-redux';
+import '../css/itemCount.css';
 
 const ItemCount = ({ product }) => {
   const [count, setCount] = useState(0);
@@ -21,15 +22,15 @@ const ItemCount = ({ product }) => {
     setCount(count - count);
   };
   return (
-    <div className="d-flex align-items-center gap-1">
-      <button className="px-2 btn btn-primary" onClick={() => decreaseCount()}>
+    <div className="d-flex align-items-center gap-2">
+      <button className="px-2  btn-primary cart-button" onClick={() => decreaseCount()}>
         -
       </button>
       <span>{count}</span>
-      <button className="px-2 btn btn-primary" onClick={() => increaseCount()}>
+      <button className="px-2  btn-primary cart-button" onClick={() => increaseCount()}>
         +
       </button>
-      <button className="px-2 btn btn-primary" disabled={count < 1} onClick={() => toAdd(product)}>
+      <button className="px-2  btn-primary cart-button" disabled={count < 1} onClick={() => toAdd(product)}>
         Agregar
       </button>
     </div>

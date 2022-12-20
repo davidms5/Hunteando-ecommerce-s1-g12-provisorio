@@ -24,7 +24,7 @@ const Products = () => {
             <h1 className="text-center my-5">PRODUCTOS</h1>
             <div className="row">
               {products.map((product, index) => (
-                <div key={index} className="col-12 col-sm-6 col-md-4 my-3 d-flex justify-content-center">
+                <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-3 d-flex justify-content-center">
                   {/* Estas props deben ser modificadas una vez tengamos la API del backend y sepamos cuales son las propiedades de los productos.  */}
                   <Card product={product} />
                 </div>
