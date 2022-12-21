@@ -31,10 +31,13 @@ const realizarCompra = async(req, res) =>{
             NOMBRE:req.body.NOMBRE,
             APELLIDO: req.body.APELLIDO,
             EMAIL:req.body.EMAIL,
-            PRODUCTO:req.body.PRODUCTO,
+            PRODUCTO:req.body.PRODUCTO.ID_PRODUCTO,
             CANTIDAD: req.body.CANTIDAD,
             PRECIO_TOTAL:req.body.PRECIO_TOTAL
         });
+
+        await compras.addproducto(req.body.PRODUCTO);
+
         res.status(201).json({id, msg: "compra realizada"});
     } catch (error) {
         console.log(error.message);
