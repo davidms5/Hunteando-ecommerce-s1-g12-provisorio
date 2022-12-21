@@ -9,17 +9,33 @@ module.exports = (sequelize) => {
     },
     NOMBRE: {
       type: Sequelize.STRING(50),
-      allowNull: false
+      allowNull: false,
+      validate:{
+        notEmpty:{
+          args: true,
+          msg: "no puede haber strings vacios",
+        },
+        len:{
+          args:[3, 255],
+          msg: "el valor tiene que estar entre 3 a 255 caracteres"
+        }  // no permite que se acepten strings vacios
+      }
     },
     APELLIDO: {
       type: Sequelize.STRING(50),
       allowNull: false
     },
     EMAIL: {
-      type: Sequelize.STRING(50),
-      allowNull: false
+      type: Sequelize.STRING(50), //buscar un validate para el email
+      allowNull: false,
+      validate:{
+        isEmail:{
+          args:true,
+          msg:"tiene que ser un email valido"
+        }
+      }
     },
-    PRODUCTO_ID: {
+    PRODUCTO: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references:{
@@ -28,6 +44,7 @@ module.exports = (sequelize) => {
         }
     }, // que producto_id, cantidad y precio esten en otra tabla, y precio total seria la suma de los precios de cada
        // que esa tabla sea de una tabla compra, pero que la tabla compra tenga multiples tablas de esa otra tabla
+       // ver cual asociacion funciona, one to many o many to many
     CANTIDAD: {
         type: Sequelize.INTEGER(50),
         allowNull: false

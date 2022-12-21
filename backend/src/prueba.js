@@ -4,6 +4,7 @@ const Sequelize = require("./config/db");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
+require("./models/associations");
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -44,16 +45,21 @@ app.use("/posts", require("./routes/post"))
 // middleware para usar el contenido de la carpeta "frontend"
 app.use(express.static("frontend")) 
 
+//endpoints productos
 app.use("/products", require("./routes/productos"))
-
+//endpoints compras
 app.use("/cart", require("./routes/compras"))
- //error de sincronizacion de la tabla compras
-Sequelize.sync()
-.then(() => { console.log("probando")})
-.catch(error => console.error('Error sincronizando las tablas', error));
+
+
 
 app.listen(PORT, () =>{
-    console.log(`proceso iniciado en puerto ${PORT}`)  
+    console.log(`proceso iniciado en puerto ${PORT}`);
+
+    //sincornizando las tablas con la base de datos
+    Sequelize.sync()
+    .then(() => { console.log("probando")})
+    .catch(error => console.error('Error sincronizando las tablas', error));
+
 });
 
  //---------------------------------------------inicio del server--------------------------------------------
