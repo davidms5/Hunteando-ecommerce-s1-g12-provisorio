@@ -1,23 +1,33 @@
 import React from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-const ThankYou = ({ total, id, order }) => {
+const ThankYou = ({ total, orden }) => {
+  const [show, setShow] = useState(false);
+  const { order } = useSelector((state) => state.cart);
+  const openModal = () => {
+    setShow(true);
+  };
+  const closeModal = () => {
+    setShow(false);
+  };
+
   return (
     <div
       className="modal fade"
-      id={id}
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
-      <div className="modal-dialog">
+      <div className="modal-dialog" role="document">
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              Orden nro: {id}
+              Orden nro:
             </h1>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" className="btn-close close" aria-label="Close" onClick={() => closeModal()}></button>
           </div>
           <div className="modal-body ">
             <p>Muchas gracias por su compra </p>
@@ -33,15 +43,19 @@ const ThankYou = ({ total, id, order }) => {
                 </tr>
               </thead>
               <tbody>
-                {order.map((item, index) => (
+                {orden.map((item, index) => (
                   <tr key={index}>
                     <th scope="row">
-                      <img className="logoTable" alt="articulo" src={item.image} />
+                      <img
+                        className="logoTable"
+                        alt="articulo"
+                        src={item.IMAGEN ? item.IMAGEN : require('../assets/no-disponible.png')}
+                      />
                     </th>
-                    <td>{item.name}</td>
-                    <td>{item.price}</td>
+                    <td>{item.NOMBRE_PRODUCTO}</td>
+                    <td>{item.PRECIO_VENTA}</td>
                     <td>{item.cartQuantity}</td>
-                    <td>{item.cartQuantity * item.price}</td>
+                    <td>{item.cartQuantity * item.PRECIO_VENTA}</td>
                   </tr>
                 ))}
               </tbody>
@@ -50,7 +64,7 @@ const ThankYou = ({ total, id, order }) => {
             <span>{total}</span>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
+            <button type="button" onClick={() => closeModal()} className="btn btn-secondary">
               Cerrar
             </button>
           </div>

@@ -13,6 +13,7 @@ export const Home = () => {
 
   //bestProduct es solo para pintar 3 productos hasta que se decida que productas se renderizaran en el home
   const bestProducts = [products[0], products[1], products[2]];
+
   const addId = (product) => {
     dispatch(addToCart(product));
   };
@@ -22,21 +23,27 @@ export const Home = () => {
   }, []);
 
   return (
-    <div className="home">
-      <div className=" container home-img">
-        <img src={fondo} alt="logo-centro" />
-      </div>
-      <div className="home-products">
-        <div className="container py-5">
-          <div className="row">
-            {bestProducts.map((product, index) => (
-              <div key={index} className="col-12 col-sm-6 col-md-4 my-2 d-flex justify-content-center">
-                <Card id={product.id} name={product.name} price={product.price} image={product.image} addId={addId} />
+    <div>
+      {products.length === 0 ? (
+        <p>hola</p>
+      ) : (
+        <div className="home">
+          <div className=" container home-img">
+            <img src={fondo} alt="logo-centro" />
+          </div>
+          <div className="home-products">
+            <div className="container py-5">
+              <div className="row">
+                {bestProducts.map((product, index) => (
+                  <div key={index} className="col-12 col-sm-6 col-md-4 my-2 d-flex justify-content-center">
+                    <Card product={product} addId={addId} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

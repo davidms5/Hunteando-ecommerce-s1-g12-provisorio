@@ -1,13 +1,13 @@
-import React from "react";
-import logo from "../assets/footer.png";
-import { BsInstagram, BsFacebook, BsWhatsapp } from "react-icons/bs";
-import { ImYoutube } from "react-icons/im";
-import "../css/footer.css";
-import Contact from "../components/Contact";
+import React from 'react';
+import logo from '../assets/footer.png';
+import { BsInstagram, BsFacebook, BsWhatsapp } from 'react-icons/bs';
+import { ImYoutube } from 'react-icons/im';
+import '../css/footer.css';
+import Contact from '../components/Contact';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="footer mt-2">
       <div className="container pb-5">
         <div className="row">
           <div className="footer-image col-12 col-md-6">

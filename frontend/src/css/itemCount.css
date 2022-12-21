@@ -1,0 +1,15 @@
+.cart-button{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--color-secundary);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.5s;
+  text-shadow: 2px 2px 4px #010101;
+  box-shadow: 2px 3px 4px #010101;
+}
+.cart-button:hover{
+    transform: scale(1.1);
+}
+
