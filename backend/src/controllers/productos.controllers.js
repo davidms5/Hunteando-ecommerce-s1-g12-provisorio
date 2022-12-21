@@ -3,7 +3,7 @@ const productos = require("../models/producto")(sequelize)
 
 const getproductos = async(req, res) =>{
     try {
-        const response = await productos.findAll({attributes:["NOMBRE_PRODUCTO", "IMAGEN", "PRECIO_VENTA", "MARCA"]});
+        const response = await productos.findAll();
         res.status(200).json(response);
     } catch (error) {
         console.log(error.message);

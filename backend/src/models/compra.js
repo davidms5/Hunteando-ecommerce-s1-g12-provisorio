@@ -26,12 +26,13 @@ module.exports = (sequelize) => {
             model: 'producto',
             key: 'ID_PRODUCTO'
         }
-    },
+    }, // que producto_id, cantidad y precio esten en otra tabla, y precio total seria la suma de los precios de cada
+       // que esa tabla sea de una tabla compra, pero que la tabla compra tenga multiples tablas de esa otra tabla
     CANTIDAD: {
         type: Sequelize.INTEGER(50),
         allowNull: false
     },
-    PRECIO_TOTAKL: {
+    PRECIO_TOTAL: {
         type: Sequelize.DECIMAL,
         allowNull: false
     }, 
@@ -39,10 +40,10 @@ module.exports = (sequelize) => {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     },
-    MEDIO_DE_PAGO: {
-        type: Sequelize.STRING,
-        allowNull: false // modificar este campo para que acepte medios de pago en especifico
-    }
+    //MEDIO_DE_PAGO: {
+    //    type: Sequelize.STRING,
+    //    allowNull: false // modificar este campo para que acepte medios de pago en especifico
+    //}
   });
 
   return compras;

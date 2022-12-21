@@ -9,7 +9,7 @@ const {
 
 
 //endpoint de producto en especifico
-router.get("/:id", getComprasById);
+router.get("/:ID", getComprasById);
     
 
 //endpoint de query a todos los productos
@@ -22,6 +22,6 @@ router.post("/", realizarCompra);
 //router.patch("/:ID_PRODUCTO", actualizarProducto);
 
 // borrar producto
-router.delete("/:id", borrarCompra);
+router.delete("/:ID", borrarCompra);
 
 module.exports = router;
