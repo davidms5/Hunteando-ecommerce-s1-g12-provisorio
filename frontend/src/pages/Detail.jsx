@@ -22,7 +22,11 @@ export const Detail = () => {
         <div className="container detail">
           <h2>{product.NOMBRE_PRODUCTO}</h2>
           <div className="row">
-            <img className="detail__img col-12 col-md-6 " src={product.IMAGEN} alt={product.NOMBRE_PRODUCTO} />
+            <img
+              className="detail__img col-12 col-md-6 "
+              src={product.IMAGEN ? product.IMAGEN : require('../assets/no-disponible.png')}
+              alt={product.NOMBRE_PRODUCTO}
+            />
             <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
               <span>marca: {product.MARCA}</span>
 

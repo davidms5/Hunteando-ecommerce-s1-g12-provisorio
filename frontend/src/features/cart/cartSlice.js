@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -7,6 +8,7 @@ const cartSlice = createSlice({
     cartTotalAmount: 0,
     cartTotalQuantity: 0,
     order: {},
+    alerts: ['success', 'danger'],
   },
   reducers: {
     addToCart(state, action) {
@@ -14,12 +16,14 @@ const cartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cart[itemIndex].cartQuantity += action.payload.quantity;
+        toast.success('Producto(s) añadido', { position: 'bottom-left', autoClose: 1000 });
         return;
       }
 
       const product = { ...action.payload.product, cartQuantity: action.payload.quantity };
 
       state.cart.push(product);
+      toast.success('Producto(s) añadido', { position: 'bottom-left', autoClose: 1000 });
     },
 
     decreaseCart(state, action) {
@@ -27,16 +31,21 @@ const cartSlice = createSlice({
 
       if (state.cart[itemIndex].cartQuantity > 1) {
         state.cart[itemIndex].cartQuantity -= 1;
+        toast.error('Producto disminuido', { position: 'bottom-left', autoClose: 1000 });
         return;
       }
 
       state.cart = state.cart.filter((item) => item.ID_PRODUCTO !== action.payload.product.ID_PRODUCTO);
+
+      toast.error('Producto(s) eliminado', { position: 'bottom-left', autoClose: 1000 });
     },
     removeFromCart(state, action) {
       state.cart = state.cart.filter((item) => item.ID_PRODUCTO !== action.payload.ID_PRODUCTO);
+      toast.error('Producto(s) eliminado', { position: 'bottom-left', autoClose: 1000 });
     },
     clearCart(state) {
       state.cart = [];
+      toast.error('Vaciaste el carrito', { position: 'bottom-left', autoClose: 1000 });
     },
     getTotals(state, action) {
       let { total, quantity } = state.cart.reduce(

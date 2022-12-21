@@ -10,7 +10,7 @@ export const Card = ({ product }) => {
 
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="p-1 w-100 h-100">
       {!product ? (
         <div>HOla</div>
       ) : (
@@ -22,13 +22,13 @@ export const Card = ({ product }) => {
               alt={product.NOMBRE_PRODUCTO}
             />
           </div>
-          <div className="card-body">
+          <div className="card-body d-flex flex-column justify-content-between align-items-between">
+            <h5 className="text-center">{product.NOMBRE_PRODUCTO}</h5>
             <div className="card-description">
-              <h5 className="text-center">{product.NOMBRE_PRODUCTO}</h5>
               <span>Precio: ${product.PRECIO_VENTA}</span>
-            </div>
-            <div className="card-button">
-              <ItemCount product={product} />
+              <div className="card-button my-2">
+                <ItemCount product={product} />
+              </div>
             </div>
           </div>
         </div>

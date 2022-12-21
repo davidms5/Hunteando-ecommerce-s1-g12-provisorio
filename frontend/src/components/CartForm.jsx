@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+// import axios from 'axios';
 import '../css/contact.css';
 import { clearCart } from '../features/cart/cartSlice.js';
 
-import { sendOrder } from '../features/cart/thunks';
-import { useDispatch } from 'react-redux';
+import { sendOrder, getOrder } from '../features/cart/thunks';
+import { useDispatch, useSelector } from 'react-redux';
 import ThankYou from '../components/ThankYou';
 
-const CartForm = ({ orderId, order, total }) => {
+const CartForm = ({ orden, total }) => {
   const [show, setShow] = useState(false);
+  const { order } = useSelector((state) => state.cart);
 
   function openModal() {
     setShow(true);
@@ -25,7 +26,6 @@ const CartForm = ({ orderId, order, total }) => {
     surname: Yup.string().required('Debe ingresar un apellido'),
     email: Yup.string().required('Debe ingresar un email').email('Email invalido'),
   });
-
   const dispatch = useDispatch();
   const removeAllItem = () => {
     dispatch(clearCart());
@@ -53,17 +53,25 @@ const CartForm = ({ orderId, order, total }) => {
             PRECIO_TOTAKL: total,
             MEDIO_DE_PAGO: 'No se',
           };
-          axios({
-            method: 'post',
-            url: 'http://localhost:3000/carrito',
-            data: orderData,
-          }).then((e) => {
-            openModal();
+          const prueba = dispatch(sendOrder(orderData))
+            .then((data) => {
+              dispatch(getOrder(data.id));
+            })
+            .then((e) => {
+              openModal();
+              resetForm();
+              setSend(true);
+            });
+          // axios({
+          //   method: 'post',
+          //   url: 'http://localhost:3000/carrito',
+          //   data: orderData,
+          // }).then((e) => {
+          //   openModal();
 
-            resetForm();
-            orderId = 100;
-            setSend(true);
-          });
+          //   resetForm();
+          //   setSend(true);
+          // });
         }}
       >
         {({ errors, touched }) => {
@@ -102,7 +110,7 @@ const CartForm = ({ orderId, order, total }) => {
                           </tr>
                         </thead>
                         <tbody>
-                          {order.map((item, index) => (
+                          {orden.map((item, index) => (
                             <tr key={index}>
                               <th scope="row">
                                 <img
@@ -151,7 +159,7 @@ const CartForm = ({ orderId, order, total }) => {
                 Pagar
               </button>
 
-              <ThankYou id={orderId} order={order} total={total} />
+              <ThankYou orden={orden} total={total} />
             </Form>
           );
         }}

@@ -1,15 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-const ThankYou = ({ total, id, order }) => {
+const ThankYou = ({ total, orden }) => {
   const [show, setShow] = useState(false);
-
-  function openModal() {
+  const { order } = useSelector((state) => state.cart);
+  const openModal = () => {
     setShow(true);
-  }
-  function closeModal() {
+  };
+  const closeModal = () => {
     setShow(false);
-  }
+  };
 
   return (
     <div
@@ -24,7 +25,7 @@ const ThankYou = ({ total, id, order }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              Orden nro: {id}
+              Orden nro:
             </h1>
             <button type="button" className="btn-close close" aria-label="Close" onClick={() => closeModal()}></button>
           </div>
@@ -42,7 +43,7 @@ const ThankYou = ({ total, id, order }) => {
                 </tr>
               </thead>
               <tbody>
-                {order.map((item, index) => (
+                {orden.map((item, index) => (
                   <tr key={index}>
                     <th scope="row">
                       <img

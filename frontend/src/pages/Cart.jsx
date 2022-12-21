@@ -20,8 +20,6 @@ const Cart = () => {
 
   const dispatch = useDispatch();
 
-  let orderId = 'prueba';
-
   const removeItem = (product) => {
     dispatch(removeFromCart(product));
     setMostrar(!mostrar);
@@ -54,15 +52,9 @@ const Cart = () => {
           <div className="row">
             <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
 
-            <div className="cart-alert-delete col-12 col-md-6">
+            <div className=" col-12 col-md-6">
               <h2 className="text-center">PRODUCTOS</h2>
-              {mostrar ? (
-                <div className="alert alert-danger" role="alert">
-                  Producto eliminado
-                </div>
-              ) : (
-                <></>
-              )}
+
               <table className="table td-border-none ">
                 <thead className="td-border-none">
                   <tr>
@@ -139,7 +131,7 @@ const Cart = () => {
                 </form>
               </div>
             </div>
-            <CartForm orderId={orderId} order={cart} total={cartTotalAmount} />
+            <CartForm orden={cart} total={cartTotalAmount} />
           </div>
         )}
       </div>
