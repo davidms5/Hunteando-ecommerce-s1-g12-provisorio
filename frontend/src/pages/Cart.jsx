@@ -1,18 +1,13 @@
-import React, { useState } from "react";
-
-import carritoVacio from "../assets/carritoVacio.png";
-import { Link } from "react-router-dom";
-import "../css/cart.css";
-import ThankYou from "../components/ThankYou";
+import React, { useState } from 'react';
+import carritoVacio from '../assets/carritoVacio.png';
+import { Link } from 'react-router-dom';
+import '../css/cart.css';
+import CartForm from '../components/CartForm';
+import { BsTrash } from 'react-icons/bs';
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
-import {
-  removeFromCart,
-  addToCart,
-  decreaseCart,
-  clearCart,
-} from "../features/cart/cartSlice.js";
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart, addToCart, decreaseCart, clearCart } from '../features/cart/cartSlice.js';
 
 const Cart = () => {
   const [mostrar, setMostrar] = useState(false);
@@ -24,8 +19,6 @@ const Cart = () => {
   const delivery = 200;
 
   const dispatch = useDispatch();
-
-  let orderId = "orderNumber";
 
   const removeItem = (product) => {
     dispatch(removeFromCart(product));
@@ -51,66 +44,61 @@ const Cart = () => {
           <div className="cart">
             <img className="cart-img" src={carritoVacio} alt="carrito vacio" />
             <h1>CARRITO VACIO</h1>
-            <Link to={"/products"}>
+            <Link to={'/products'}>
               <button className="cart-button">Ir a comprar...</button>
             </Link>
           </div>
         ) : (
           <div className="row">
             <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
-            <div className="cart-alert-delete col-12 col-md-6">
-              {mostrar ? (
-                <div class="alert alert-danger" role="alert">
-                  Producto eliminado
-                </div>
-              ) : (
-                <></>
-              )}
-              <table className="table">
-                <thead>
+
+            <div className=" col-12 col-md-6">
+              <h2 className="text-center">PRODUCTOS</h2>
+
+              <table className="table td-border-none ">
+                <thead className="td-border-none">
                   <tr>
                     <th scope="col"></th>
                     <th scope="col">Título</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
-                    <th scope="col"></th>
+
                     <th scope="col">Total</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="td-border-none">
                   {cart.map((item, index) => (
-                    <tr key={index}>
+                    <tr className="shadow-sm rounded td-border-none" key={index}>
                       <th scope="row">
                         <img
                           className="logoTable"
                           alt="articulo"
-                          src={item.image}
+                          src={item.IMAGEN ? item.IMAGEN : require('../assets/no-disponible.png')}
                         />
                       </th>
-                      <td>{item.name}</td>
-                      <td>{item.price}</td>
+                      <td>{item.NOMBRE_PRODUCTO}</td>
+                      <td>{item.PRECIO_VENTA}</td>
                       <td>
-                        <button
-                          className="cart-button"
-                          onClick={() => decreaseItem(item)}
-                        >
-                          -
-                        </button>
-                        {item.cartQuantity}
-                        <button
-                          className="cart-button"
-                          onClick={() => increaseItem(item)}
-                        >
-                          +
-                        </button>
+                        <div className="cart-buttons-container">
+                          <button className="cart-button" onClick={() => decreaseItem(item)}>
+                            -
+                          </button>
+                          <span className="px-2 ">{item.cartQuantity}</span>
+                          <button className="cart-button" onClick={() => increaseItem(item)}>
+                            +
+                          </button>
+                        </div>
                       </td>
-                      <td
-                        onClick={() => removeItem(item)}
-                        className="text-danger fw-bold"
-                      >
-                        X
+
+                      <td className="position-relative">
+                        {item.cartQuantity * item.PRECIO_VENTA}
+                        <div
+                          onClick={() => removeItem(item)}
+                          className="d-flex justify-content-center align-tems-center p-1 text-danger fw-semibold position-absolute top-0 start-72"
+                        >
+                          <BsTrash />
+                        </div>
                       </td>
-                      <td>{item.cartQuantity * item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -121,7 +109,7 @@ const Cart = () => {
             </div>
             <div className=" col-12 col-md-6">
               <div className="ticket my-3 m-md-0 p-0">
-                <h1 className="text-center">TICKET DE COMPRA</h1>
+                <h2 className="text-center">TICKET DE COMPRA</h2>
                 <form>
                   <div className="d-flex justify-content-between my-3">
                     <span>Precio :</span>
@@ -140,21 +128,10 @@ const Cart = () => {
                     <span>${cartTotalAmount - discount + delivery}</span>
                   </div>
                   {/* <!-- Boton de agradecimiento modal --> */}
-
-                  <button
-                    type="button"
-                    className="btn btn-primary cart-button"
-                    data-bs-toggle="modal"
-                    data-bs-target={`#${orderId}`}
-                    onClick={() => removeAllItem()}
-                  >
-                    PAGAR
-                  </button>
-
-                  <ThankYou id={orderId} order={cart} total={cartTotalAmount} />
                 </form>
               </div>
             </div>
+            <CartForm orden={cart} total={cartTotalAmount} />
           </div>
         )}
       </div>

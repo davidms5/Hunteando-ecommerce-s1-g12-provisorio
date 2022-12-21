@@ -15,7 +15,6 @@
     border-radius: 5px;
     background-color: var(--color-secundary);
     color: #fff;
-    
     cursor: pointer;
     transition: all 0.5s;
 }
@@ -41,4 +40,27 @@
 }
 td{
   vertical-align: middle;
+}
+.td-border-none{
+  border-style: hidden
+}
+.start-72{
+  left:72%!important;
+  cursor: pointer;
+  line-height: 12px;
+  font-size: 14px;
+
+}
+.start-72:hover{
+
+  line-height: 16px;
+  font-size: 18px;
+}
+
+
+.cart-buttons-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100px;
 }
