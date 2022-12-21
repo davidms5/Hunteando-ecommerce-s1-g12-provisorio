@@ -11,7 +11,7 @@ import ThankYou from '../components/ThankYou';
 
 const CartForm = ({ orden, total }) => {
   const [show, setShow] = useState(false);
-  const { order } = useSelector((state) => state.cart);
+  const { order, cartTotalQuantity } = useSelector((state) => state.cart);
 
   function openModal() {
     setShow(true);
@@ -49,28 +49,20 @@ const CartForm = ({ orden, total }) => {
             APELLIDO: values.surname,
             EMAIL: values.email,
             PRODUCTO_ID: 20,
-            CANTIDAD: 650,
+            CANTIDAD: cartTotalQuantity,
             PRECIO_TOTAL: total,
           };
-          const prueba = dispatch(sendOrder(orderData))
+          console.log('Orden enviada', orderData);
+
+          dispatch(sendOrder(orderData))
             .then((data) => {
-              dispatch(getOrder(data.id));
+              dispatch(getOrder(data.ID));
             })
             .then((e) => {
               openModal();
               resetForm();
               setSend(true);
             });
-          // axios({
-          //   method: 'post',
-          //   url: 'http://localhost:3000/carrito',
-          //   data: orderData,
-          // }).then((e) => {
-          //   openModal();
-
-          //   resetForm();
-          //   setSend(true);
-          // });
         }}
       >
         {({ errors, touched }) => {
@@ -87,7 +79,7 @@ const CartForm = ({ orden, total }) => {
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title">OrderNro</h5>
+                      <h5 className="modal-title">Orden ID: {order.ID}</h5>
                       <button
                         type="button"
                         className="btn-close close"
@@ -96,7 +88,12 @@ const CartForm = ({ orden, total }) => {
                       ></button>
                     </div>
                     <div className="modal-body ">
-                      <p>Muchas gracias por su compra </p>
+                      <h2>Datos</h2>
+                      <p>Nombre :{order.NOMBRE}</p>
+                      <p>Apellido: {order.APELLIDO}</p>
+                      <p>Email: {order.EMAIL}</p>
+                      <p>Fecha: {order.FECHA_DE_COMPRA}</p>
+
                       <h2>Detalles de su orden:</h2>
                       <table className="table">
                         <thead>
@@ -130,6 +127,7 @@ const CartForm = ({ orden, total }) => {
                       <span>{total}</span>
                     </div>
                     <div className="modal-footer">
+                      <p className="h3 text-center ">Muchas gracias por su compra </p>
                       <button type="button" onClick={() => closeModal()} className="btn btn-secondary">
                         Close
                       </button>

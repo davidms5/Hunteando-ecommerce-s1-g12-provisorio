@@ -5,16 +5,17 @@ export const sendOrder = (order) => {
   return async (dispatch) => {
     const { data } = await productsApi.post('/cart', order);
 
-    console.log('order-creada', data);
+    console.log('Orden creada', data);
 
     return data;
   };
 };
-export const getOrder = (id) => {
-  console.log('id ingresado', id);
+export const getOrder = (ID) => {
+  console.log('id ingresado', ID);
   return async (dispatch) => {
-    const { data } = await productsApi.get(`/cart/${id}`);
-    console.log('order-data', data);
+    const { data } = await productsApi.get(`/cart/${ID}`);
+    console.log('Orden data', data);
+
     dispatch(setOrder({ order: data }));
   };
 };
