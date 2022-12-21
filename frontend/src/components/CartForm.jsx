@@ -50,8 +50,12 @@ const CartForm = ({ orden, total }) => {
             EMAIL: values.email,
             PRODUCTO_ID: 20,
             CANTIDAD: 650,
+<<<<<<< HEAD
             PRECIO_TOTAKL: total,
             MEDIO_DE_PAGO: 'No se',
+=======
+            PRECIO_TOTAL: total,
+>>>>>>> 9d37b4b6077e154af6f354f9894ea273ea23b452
           };
           const prueba = dispatch(sendOrder(orderData))
             .then((data) => {

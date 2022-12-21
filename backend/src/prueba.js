@@ -47,7 +47,7 @@ app.use(express.static("frontend"))
 
 //endpoints productos
 app.use("/products", require("./routes/productos"))
-//endpoints compras
+//endpoints carrito
 app.use("/cart", require("./routes/compras"))
 
 
