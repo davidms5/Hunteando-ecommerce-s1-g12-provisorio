@@ -11,7 +11,7 @@ import ThankYou from '../components/ThankYou';
 
 const CartForm = ({ orden, total }) => {
   const [show, setShow] = useState(false);
-  const { order } = useSelector((state) => state.cart);
+  const { order, cartTotalQuantity } = useSelector((state) => state.cart);
 
   function openModal() {
     setShow(true);
@@ -48,41 +48,30 @@ const CartForm = ({ orden, total }) => {
             NOMBRE: values.name,
             APELLIDO: values.surname,
             EMAIL: values.email,
-            PRODUCTO_ID: 20,
-            CANTIDAD: 650,
-<<<<<<< HEAD
-            PRECIO_TOTAKL: total,
-            MEDIO_DE_PAGO: 'No se',
-=======
+            PRODUCTO: 19,
+            CANTIDAD: cartTotalQuantity,
             PRECIO_TOTAL: total,
->>>>>>> 9d37b4b6077e154af6f354f9894ea273ea23b452
           };
-          const prueba = dispatch(sendOrder(orderData))
+
+          console.log('Orden enviada', orderData);
+
+          dispatch(sendOrder(orderData))
             .then((data) => {
-              dispatch(getOrder(data.id));
+              console.log('Orden enviada return', data);
+              dispatch(getOrder(data.ID));
             })
             .then((e) => {
               openModal();
               resetForm();
               setSend(true);
             });
-          // axios({
-          //   method: 'post',
-          //   url: 'http://localhost:3000/carrito',
-          //   data: orderData,
-          // }).then((e) => {
-          //   openModal();
-
-          //   resetForm();
-          //   setSend(true);
-          // });
         }}
       >
         {({ errors, touched }) => {
           return (
-            <Form className="w-50 mx-auto">
+            <Form className="w-75 mx-auto">
               <div
-                className={show ? 'modal fade show' : 'modal fade'}
+                className={show ? 'modal modal-lg fade show' : 'modal fade'}
                 style={{ display: show ? 'block' : 'none' }}
                 tabndex="-1"
                 aria-labelledby="exampleModalLabel"
@@ -92,7 +81,7 @@ const CartForm = ({ orden, total }) => {
                 <div className="modal-dialog" role="document">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title">OrderNro</h5>
+                      <h5 className="modal-title">Orden ID: {order.ID}</h5>
                       <button
                         type="button"
                         className="btn-close close"
@@ -101,8 +90,21 @@ const CartForm = ({ orden, total }) => {
                       ></button>
                     </div>
                     <div className="modal-body ">
-                      <p>Muchas gracias por su compra </p>
-                      <h2>Detalles de su orden:</h2>
+                      <h2 className="h3">Datos</h2>
+                      <p>
+                        <span className="fw-bold">Nombre</span> :{order.NOMBRE}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Apellido:</span> {order.APELLIDO}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Email:</span> {order.EMAIL}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Fecha:</span> {order.FECHA_DE_COMPRA}
+                      </p>
+
+                      <h3 className="h3">Detalles de su orden:</h3>
                       <table className="table">
                         <thead>
                           <tr>
@@ -131,12 +133,13 @@ const CartForm = ({ orden, total }) => {
                           ))}
                         </tbody>
                       </table>
-                      <span>Total compra: </span>
+                      <span className="fw-bold">Total compra: </span>
                       <span>{total}</span>
                     </div>
-                    <div className="modal-footer">
+                    <div className="modal-footer d-flex justify-content-between">
+                      <p className="h4 ">Muchas gracias por su compra </p>
                       <button type="button" onClick={() => closeModal()} className="btn btn-secondary">
-                        Close
+                        Cerrar
                       </button>
                     </div>
                   </div>

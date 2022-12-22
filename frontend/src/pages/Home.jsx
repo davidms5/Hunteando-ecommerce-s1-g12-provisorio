@@ -12,7 +12,7 @@ export const Home = () => {
   const products = useSelector((state) => state.products.products);
 
   //bestProduct es solo para pintar 3 productos hasta que se decida que productas se renderizaran en el home
-  const bestProducts = [products[0], products[1], products[2]];
+  const bestProducts = [products[0], products[1], products[2], products[3]];
 
   const addId = (product) => {
     dispatch(addToCart(product));
@@ -35,7 +35,7 @@ export const Home = () => {
             <div className="container py-5">
               <div className="row">
                 {bestProducts.map((product, index) => (
-                  <div key={index} className="col-12 col-sm-6 col-md-4 my-2 d-flex justify-content-center">
+                  <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex justify-content-center">
                     <Card product={product} addId={addId} />
                   </div>
                 ))}
