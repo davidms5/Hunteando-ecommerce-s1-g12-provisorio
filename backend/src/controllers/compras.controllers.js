@@ -15,7 +15,7 @@ const getComprasById = async(req, res) =>{
     try {
         const response = await compras.findOne({
             where:{
-                id: req.params.id
+                ID: req.params.ID
             }
         });
         res.status(200).json(response);
