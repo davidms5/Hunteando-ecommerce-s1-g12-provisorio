@@ -51,6 +51,7 @@ const CartForm = ({ orden, total }) => {
             PRODUCTO_ID: 20,
             CANTIDAD: cartTotalQuantity,
             PRECIO_TOTAL: total,
+>>>>>>> 9d37b4b6077e154af6f354f9894ea273ea23b452
           };
           console.log('Orden enviada', orderData);
 

@@ -13,9 +13,9 @@ export const sendOrder = (order) => {
 export const getOrder = (ID) => {
   console.log('id ingresado', ID);
   return async (dispatch) => {
-    const { data } = await productsApi.get(`/cart/${ID}`);
-    console.log('Orden data', data);
+    const { data } = await productsApi.get(`/carrito/${id}`);
 
+    console.log('order-data', data);
     dispatch(setOrder({ order: data }));
   };
 };
