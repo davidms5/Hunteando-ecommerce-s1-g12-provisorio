@@ -37,7 +37,7 @@ const realizarCompra = async(req, res) =>{
             PRECIO_TOTAL:req.body.PRECIO_TOTAL
         });
 
-        await compras.addproducto(req.body.PRODUCTO);
+       // await compras.addproducto(req.body.PRODUCTO);
 
         res.status(201).json({id, msg: "compra realizada"});
     } catch (error) {
