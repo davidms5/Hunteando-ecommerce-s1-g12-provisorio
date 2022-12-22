@@ -48,15 +48,16 @@ const CartForm = ({ orden, total }) => {
             NOMBRE: values.name,
             APELLIDO: values.surname,
             EMAIL: values.email,
-            PRODUCTO_ID: 20,
+            PRODUCTO: 19,
             CANTIDAD: cartTotalQuantity,
             PRECIO_TOTAL: total,
->>>>>>> 9d37b4b6077e154af6f354f9894ea273ea23b452
           };
+
           console.log('Orden enviada', orderData);
 
           dispatch(sendOrder(orderData))
             .then((data) => {
+              console.log('Orden enviada return', data);
               dispatch(getOrder(data.ID));
             })
             .then((e) => {
@@ -68,9 +69,9 @@ const CartForm = ({ orden, total }) => {
       >
         {({ errors, touched }) => {
           return (
-            <Form className="w-50 mx-auto">
+            <Form className="w-75 mx-auto">
               <div
-                className={show ? 'modal fade show' : 'modal fade'}
+                className={show ? 'modal modal-lg fade show' : 'modal fade'}
                 style={{ display: show ? 'block' : 'none' }}
                 tabndex="-1"
                 aria-labelledby="exampleModalLabel"
@@ -89,13 +90,21 @@ const CartForm = ({ orden, total }) => {
                       ></button>
                     </div>
                     <div className="modal-body ">
-                      <h2>Datos</h2>
-                      <p>Nombre :{order.NOMBRE}</p>
-                      <p>Apellido: {order.APELLIDO}</p>
-                      <p>Email: {order.EMAIL}</p>
-                      <p>Fecha: {order.FECHA_DE_COMPRA}</p>
+                      <h2 className="h3">Datos</h2>
+                      <p>
+                        <span className="fw-bold">Nombre</span> :{order.NOMBRE}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Apellido:</span> {order.APELLIDO}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Email:</span> {order.EMAIL}
+                      </p>
+                      <p>
+                        <span className="fw-bold">Fecha:</span> {order.FECHA_DE_COMPRA}
+                      </p>
 
-                      <h2>Detalles de su orden:</h2>
+                      <h3 className="h3">Detalles de su orden:</h3>
                       <table className="table">
                         <thead>
                           <tr>
@@ -124,13 +133,13 @@ const CartForm = ({ orden, total }) => {
                           ))}
                         </tbody>
                       </table>
-                      <span>Total compra: </span>
+                      <span className="fw-bold">Total compra: </span>
                       <span>{total}</span>
                     </div>
-                    <div className="modal-footer">
-                      <p className="h3 text-center ">Muchas gracias por su compra </p>
+                    <div className="modal-footer d-flex justify-content-between">
+                      <p className="h4 ">Muchas gracias por su compra </p>
                       <button type="button" onClick={() => closeModal()} className="btn btn-secondary">
-                        Close
+                        Cerrar
                       </button>
                     </div>
                   </div>
