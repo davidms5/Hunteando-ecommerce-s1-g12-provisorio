@@ -3,6 +3,7 @@ const sequelize = require("../config/db");
 const compras = require("../models/compra")(sequelize);
 const producto = require("../models/producto")(sequelize);
 
+//producto.ID_PRODUCTO
 const getCompras = async(req, res) =>{
     try {
         const response = await compras.findAll();
@@ -37,13 +38,16 @@ const realizarCompra = async(req, res) =>{
             PRECIO_TOTAL:req.body.PRECIO_TOTAL
         });
 
-       // await compras.addproducto(req.body.PRODUCTO);
+       // await compras.addproductos(req.body.PRODUCTO);
 
         res.status(201).json({id, msg: "compra realizada"});
     } catch (error) {
         console.log(error.message);
     }
 }
+
+
+
  
 //const actualizarProducto = async(req, res) =>{
 //    try {
