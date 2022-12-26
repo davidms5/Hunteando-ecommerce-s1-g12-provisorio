@@ -1,6 +1,6 @@
 const sequelize = require('../config/db');
 const compras = require('../models/compra')(sequelize);
-const producto = require('../models/producto')(sequelize);
+const productos_comprados = require('../models/productos_comprados')(sequelize);
 
 const getCompras = async (req, res) => {
   try {
@@ -27,8 +27,9 @@ const getComprasById = async (req, res) => {
 const realizarCompra = async (req, res) => {
   console.log(req.body);
   try {
-    const { ID } = await compras.create(req.body);
+    const { ID } = await compras.create(req.body, {include:[{model: productos_comprados}]});
 
+    await productos_comprados.create({compraID: ID});
     // await compras.setproducto(req.body.PRODUCTO); ó usar bulkcreate para aceptar la insercion de varios productos
     //en el include de la tabla join de productos_comprados. Ver si lo que manda el front es un array de compras, si es asi
     //hacer preubas del front back, si funciona entonces proceder a pensar si se puede poner como el fluxter
