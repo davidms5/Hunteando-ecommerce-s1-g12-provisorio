@@ -25,12 +25,16 @@ const ThankYou = ({ total, orden }) => {
         <div className="modal-content">
           <div className="modal-header">
             <h1 className="modal-title fs-5" id="staticBackdropLabel">
-              Orden nro:
+              Orden ID: {order.ID}
             </h1>
             <button type="button" className="btn-close close" aria-label="Close" onClick={() => closeModal()}></button>
           </div>
           <div className="modal-body ">
             <p>Muchas gracias por su compra </p>
+            <h2>Datos</h2>
+            <p>
+              {order.NOMBRE} {order.APELLIDO}
+            </p>
             <h2>Detalles de su orden:</h2>
             <table className="table">
               <thead>

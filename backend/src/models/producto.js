@@ -14,8 +14,6 @@ module.exports = sequelize => {
     },
     NOMBRE_PRODUCTO: {
       type: DataTypes.STRING(100),
-      allowNull: false,
-      defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -23,8 +21,6 @@ module.exports = sequelize => {
     },
     CATEGORIA: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -32,8 +28,6 @@ module.exports = sequelize => {
     },
     CANTIDAD: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -41,8 +35,7 @@ module.exports = sequelize => {
     },
     IMAGEN: {
       type: DataTypes.STRING(100),
-      allowNull: false,
-      defaultValue: null,
+    
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -50,8 +43,7 @@ module.exports = sequelize => {
     },
     EXISTENCIA: {
       type: DataTypes.STRING(15),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -59,8 +51,7 @@ module.exports = sequelize => {
     },
     PRECIO_VENTA: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -68,8 +59,7 @@ module.exports = sequelize => {
     },
     MARCA: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,

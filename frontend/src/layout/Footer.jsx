@@ -7,7 +7,7 @@ import Contact from '../components/Contact';
 
 const Footer = () => {
   return (
-    <div className="footer mt-2">
+    <div className="footer pt-2">
       <div className="container pb-5">
         <div className="row">
           <div className="footer-image col-12 col-md-6">
