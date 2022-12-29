@@ -14,10 +14,6 @@ const Cart = () => {
   const { cart } = useSelector((state) => state.cart);
   const { cartTotalAmount } = useSelector((state) => state.cart);
 
-  // Se agrega descuento y delivery falso para probar funcionalidad ELIMINAR LA TENER LA API DEL BACKEND
-  const discount = 100;
-  const delivery = 200;
-
   const dispatch = useDispatch();
 
   const removeItem = (product) => {
@@ -77,7 +73,7 @@ const Cart = () => {
                         />
                       </th>
                       <td>{item.NOMBRE_PRODUCTO}</td>
-                      <td>{item.PRECIO_VENTA}</td>
+                      <td>${item.PRECIO_VENTA}</td>
                       <td>
                         <div className="cart-buttons-container">
                           <button className="cart-button" onClick={() => decreaseItem(item)}>
@@ -91,7 +87,7 @@ const Cart = () => {
                       </td>
 
                       <td className="position-relative">
-                        {item.cartQuantity * item.PRECIO_VENTA}
+                        ${item.cartQuantity * item.PRECIO_VENTA}
                         <div
                           onClick={() => removeItem(item)}
                           className="d-flex justify-content-center align-tems-center p-1 text-danger fw-semibold position-absolute top-0 start-72"
@@ -115,17 +111,10 @@ const Cart = () => {
                     <span>Precio :</span>
                     <span>${cartTotalAmount}</span>
                   </div>
-                  <div className="d-flex justify-content-between my-3">
-                    <span>Descuento :</span>
-                    <span>-${discount}</span>
-                  </div>
-                  <div className="d-flex justify-content-between my-3">
-                    <span>envio:</span>
-                    <span>${delivery}</span>
-                  </div>
+
                   <div className="d-flex justify-content-between my-3">
                     <span>Total</span>
-                    <span>${cartTotalAmount - discount + delivery}</span>
+                    <span>${cartTotalAmount}</span>
                   </div>
                   {/* <!-- Boton de agradecimiento modal --> */}
                 </form>

@@ -1,5 +1,5 @@
 import React from 'react';
-import fondo from '../assets/fondo.png';
+import logo from '../assets/footer.png';
 import { Card } from '../components/Card';
 import '../css/home.css';
 //EL codigo comentado sera utilizado una vez podamos acceder a la api del backend
@@ -28,17 +28,21 @@ export const Home = () => {
         <p>hola</p>
       ) : (
         <div className="home">
-          <div className=" container home-img">
-            <img src={fondo} alt="logo-centro" />
+          <div className="d-flex justify-content-center align-items-center">
+            <img src={logo} alt="logo-centro" className="img-fluid logo-home" />
           </div>
           <div className="home-products">
             <div className="container py-5">
               <div className="row">
-                {bestProducts.map((product, index) => (
-                  <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex justify-content-center">
-                    <Card product={product} addId={addId} />
-                  </div>
-                ))}
+                {bestProducts.map((product, index) =>
+                  product.IMAGEN ? (
+                    <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex justify-content-center">
+                      <Card product={product} addId={addId} />
+                    </div>
+                  ) : (
+                    ''
+                  )
+                )}
               </div>
             </div>
           </div>
