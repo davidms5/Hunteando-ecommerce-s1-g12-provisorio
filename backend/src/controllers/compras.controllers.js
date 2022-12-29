@@ -1,3 +1,4 @@
+
 const sequelize = require('../config/db');
 const compras = require('../models/compra')(sequelize);
 const producto = require('../models/producto')(sequelize);
@@ -36,6 +37,9 @@ const realizarCompra = async (req, res) => {
     console.log(error.message);
   }
 };
+
+
+       
 
 //const actualizarProducto = async(req, res) =>{
 //    try {
