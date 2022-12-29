@@ -24,11 +24,15 @@ const Products = () => {
           <div className="container">
             <h1 className="text-center py-5">PRODUCTOS</h1>
             <div className="row">
-              {products.map((product, index) => (
-                <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-3 d-flex justify-content-center">
-                  <Card product={product} />
-                </div>
-              ))}
+              {products.map((product, index) =>
+                product.IMAGEN ? (
+                  <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-3 d-flex justify-content-center">
+                    <Card product={product} />
+                  </div>
+                ) : (
+                  ''
+                )
+              )}
             </div>
           </div>
         </div>

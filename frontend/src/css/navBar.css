@@ -7,7 +7,7 @@
 }
 .nav img {
   width: 80px;
-  height: 70px;
+  height: 80px;
 }
 .nav .desktop {
   display: flex;
@@ -76,7 +76,8 @@
   }
   .nav img {
     width: 70px;
-    
+    height: 70px;
+
   }
 }
 @media screen and (max-width: 600px) {

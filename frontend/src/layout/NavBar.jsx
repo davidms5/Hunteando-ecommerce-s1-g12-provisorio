@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpeg';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsCart3 } from 'react-icons/bs';
 import '../css/navBar.css';
 import { useSelector } from 'react-redux';
+import logo from '../assets/footer.png';
 
 const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,9 @@ const NavBar = () => {
     <div className="nav">
       <nav className="container-fluid d-flex justify-content-between align-items-center">
         <Link to={'/'}>
-          <img className="rounded-circle" src={logo} alt="logo" />
+          <div>
+            <img className="rounded-circle" src={logo} alt="logo" />
+          </div>
         </Link>
 
         <ul className="desktop">
@@ -27,6 +29,9 @@ const NavBar = () => {
           </li>
           <li className="desktop-li">
             <Link to={'/about'}>Acerca de</Link>
+          </li>
+          <li className="desktop-li">
+            <Link to={'/talleres'}>Talleres</Link>
           </li>
           <li className="desktop-li">
             <Link to={'/products'}>Productos</Link>
