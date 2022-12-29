@@ -5,8 +5,6 @@ module.exports = sequelize => {
   const attributes = {
     ID_CLIENTE: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
       comment: null,
