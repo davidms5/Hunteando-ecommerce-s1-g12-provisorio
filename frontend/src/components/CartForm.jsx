@@ -126,15 +126,15 @@ const CartForm = ({ orden, total }) => {
                                 />
                               </th>
                               <td>{item.NOMBRE_PRODUCTO}</td>
-                              <td>{item.PRECIO_VENTA}</td>
+                              <td>${item.PRECIO_VENTA}</td>
                               <td>{item.cartQuantity}</td>
-                              <td>{item.cartQuantity * item.PRECIO_VENTA}</td>
+                              <td>${item.cartQuantity * item.PRECIO_VENTA}</td>
                             </tr>
                           ))}
                         </tbody>
                       </table>
                       <span className="fw-bold">Total compra: </span>
-                      <span>{total}</span>
+                      <span>${total}</span>
                     </div>
                     <div className="modal-footer d-flex justify-content-between">
                       <p className="h4 ">Muchas gracias por su compra </p>
