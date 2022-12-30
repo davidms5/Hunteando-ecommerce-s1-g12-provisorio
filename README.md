@@ -4,7 +4,11 @@ Proyecto e-Commerce
 ------------------------------------------------------------------------------------------------------------------------
 ¡¡¡¡¡¡¡¡¡¡ACTUALIZADO!!!!!!!!!!!!!!!
 ------------------------------------------------------------------------------------------------------------------------
+Actualizar la base de datos o hacer una nueva para los ultimos cambios realizados
 
+
+
+------------------------------------------
 para probar
 correciones del back: para hacer las pruebas de los productos traidos de la base de datos, en la url despues del localhost colocar "/products" para mostrar en formato json todos los productos en la base de datos 
 
