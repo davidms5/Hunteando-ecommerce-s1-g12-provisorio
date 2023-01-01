@@ -8,6 +8,7 @@ import { Detail } from '../pages/Detail';
 import Cart from '../pages/Cart';
 import About from '../pages/About';
 import Login from '../pages/Login';
+import Admin from '../pages/Admin';
 import Talleres from '../pages/Talleres';
 import { ToastContainer } from 'react-toastify';
 
@@ -25,6 +26,7 @@ const RoutComp = () => {
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
           </Route>
         </Routes>
       </BrowserRouter>
