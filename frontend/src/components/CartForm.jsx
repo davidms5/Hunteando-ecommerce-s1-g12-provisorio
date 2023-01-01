@@ -39,7 +39,6 @@ const CartForm = ({ orden, total }) => {
 
   return (
     <div className="contact">
-      <h3 className="text-center">DATOS</h3>
       <Formik
         initialValues={formData}
         validationSchema={dataSchema}
@@ -69,7 +68,7 @@ const CartForm = ({ orden, total }) => {
       >
         {({ errors, touched }) => {
           return (
-            <Form className="w-75 mx-auto">
+            <>
               <div
                 className={show ? 'modal modal-lg fade show' : 'modal fade'}
                 style={{ display: show ? 'block' : 'none' }}
@@ -145,29 +144,38 @@ const CartForm = ({ orden, total }) => {
                   </div>
                 </div>
               </div>
-              <div className="modal-backdrop fade show" style={{ display: show ? 'block' : 'none' }}></div>
-              <div className="d-flex flex-column my-4  position-relative">
-                <label htmlFor="name">Nombre</label>
-                <Field name="name" />
-                {touched.name ? <div className="error">{errors.name}</div> : <></>}
-              </div>
-              <div className="d-flex flex-column my-4 position-relative">
-                <label htmlFor="surname">Apellido</label>
-                <Field name="surname" />
-                {touched.surname ? <div className="error">{errors.surname}</div> : <></>}
-              </div>
-              <div className="d-flex flex-column my-4 position-relative">
-                <label htmlFor="email">Email</label>
-                <Field name="email" />
-                {touched.email ? <div className="error">{errors.email}</div> : <></>}
-              </div>
+              <Form className="form-cart mx-auto mt-2">
+                <h3 className="text-center m-0">DATOS</h3>
+                <div className="modal-backdrop fade show" style={{ display: show ? 'block' : 'none' }}></div>
+                <div className="d-flex flex-column my-4  position-relative">
+                  <label htmlFor="name" className="fw-semibold">
+                    Nombre:
+                  </label>
+                  <Field name="name" />
+                  {touched.name ? <div className="error">{errors.name}</div> : <></>}
+                </div>
+                <div className="d-flex flex-column my-4 position-relative">
+                  <label htmlFor="surname" className="fw-semibold">
+                    Apellido:
+                  </label>
+                  <Field name="surname" />
+                  {touched.surname ? <div className="error">{errors.surname}</div> : <></>}
+                </div>
+                <div className="d-flex flex-column my-4 position-relative">
+                  <label htmlFor="email" className="fw-semibold">
+                    Email:
+                  </label>
+                  <Field name="email" />
+                  {touched.email ? <div className="error">{errors.email}</div> : <></>}
+                </div>
 
-              <button className="btn btn-primary cart-button" type="submit">
-                Pagar
-              </button>
+                <button className="cart-button mb-2" type="submit">
+                  Pagar
+                </button>
 
-              <ThankYou orden={orden} total={total} />
-            </Form>
+                <ThankYou orden={orden} total={total} />
+              </Form>
+            </>
           );
         }}
       </Formik>

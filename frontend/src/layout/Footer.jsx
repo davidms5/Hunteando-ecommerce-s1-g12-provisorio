@@ -20,10 +20,10 @@ const Footer = () => {
                 <Contact />
               </div>
               <div className="footer-redes__redes">
-                <a target="_blank" href="https://www.instagram.com/autogestion.menstrual/">
+                <a target="_blank" href="https://api.whatsapp.com/message/2MNYQ5IKKRNVG1?autoload=1&app_absent=0">
                   <BsWhatsapp className="rede" />
                 </a>
-                <a target="_blank" href="https://api.whatsapp.com/message/2MNYQ5IKKRNVG1?autoload=1&app_absent=0">
+                <a target="_blank" href="https://www.instagram.com/autogestion.menstrual/">
                   <BsInstagram className="rede" />
                 </a>
                 <a target="_blank" href="https://www.facebook.com/profile.php?id=100076937733899">

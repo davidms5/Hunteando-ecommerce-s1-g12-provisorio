@@ -34,7 +34,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart-container">
+    <div className="cart-container  mb-2">
       <div className="container">
         {cart.length === 0 ? (
           <div className="cart">
@@ -64,7 +64,7 @@ const Cart = () => {
                 </thead>
                 <tbody className="td-border-none">
                   {cart.map((item, index) => (
-                    <tr className="shadow-sm rounded td-border-none" key={index}>
+                    <tr className="shadow rounded td-border-none" key={index}>
                       <th scope="row">
                         <img
                           className="logoTable"
@@ -108,12 +108,12 @@ const Cart = () => {
                 <h2 className="text-center">TICKET DE COMPRA</h2>
                 <form>
                   <div className="d-flex justify-content-between my-3">
-                    <span>Precio :</span>
+                    <span className="fw-bold">Precio :</span>
                     <span>${cartTotalAmount}</span>
                   </div>
 
                   <div className="d-flex justify-content-between my-3">
-                    <span>Total</span>
+                    <span className="fw-bold">Total</span>
                     <span>${cartTotalAmount}</span>
                   </div>
                   {/* <!-- Boton de agradecimiento modal --> */}
