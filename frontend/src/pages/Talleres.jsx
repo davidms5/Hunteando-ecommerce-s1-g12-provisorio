@@ -10,12 +10,22 @@ const Talleres = () => {
         <div className="row about-row">
           <div className="col-12 col-md-6">
             <p>
-              Si estas interesad@ en tomar un taller por favor contactame a mi email autogestionmenstrual@gmail.com o
-              traves del formulario que esta en el pie de la pagina.
+              Queremos compartir encuentros para que juntes aprendamos entre otras cosas, sobre la
+              menarquía,autocuidado, autoconocimiento.
+            </p>
+            <p>
+              {' '}
+              Compartiendo herramientas para aplicar en sus vidas y decisiones con conocimiento, derribando tabúes,
+              promoviendo la autoestima y el empoderamiento.{' '}
+            </p>
+            <p>
+              {' '}
+              Para más información podés escribirme a autogestionmenstrual@gmail.com o dejándome un mensaje al
+              formulario al pie de la página
             </p>
           </div>
-          <div className="about-row__2 col-12 col-md-6">
-            <img src={talleres} alt="background" />
+          <div className="about-row__2col-12 col-md-6">
+            <img className=" rounded " src={talleres} alt="background" />
           </div>
         </div>
       </div>

@@ -7,3 +7,11 @@
 .contact input:focus{
     outline: none;
 }
+.form-cart{
+    max-width: 500px;
+    padding: 10px 40px;
+    width: 80%;
+    background-color: var(--color-primary);
+  border-radius: 10px;
+  box-shadow: 3px 0px 20px #010101;
+}
