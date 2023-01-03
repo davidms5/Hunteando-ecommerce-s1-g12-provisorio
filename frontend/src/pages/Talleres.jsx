@@ -20,8 +20,9 @@ const Talleres = () => {
             </p>
             <p>
               {' '}
-              Para más información podés escribirme a autogestionmenstrual@gmail.com o dejándome un mensaje al
-              formulario al pie de la página
+              Para más información podés escribirme a{' '}
+              <a href="mailto:autogestionmenstrual@gmail.com">autogestionmenstrual@gmail.com</a> o dejándome un mensaje
+              al formulario al pie de la página
             </p>
           </div>
           <div className="about-row__2col-12 col-md-6">

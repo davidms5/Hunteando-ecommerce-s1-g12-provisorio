@@ -49,8 +49,11 @@ const NavBar = () => {
             <li className="mobile-li" onClick={btn}>
               <Link to={'/'}>Inicio</Link>
             </li>
-            <li className="mobile-li">
+            <li className="mobile-li" onClick={btn}>
               <Link to={'/about'}>Acerca de</Link>
+            </li>
+            <li className="mobile-li" onClick={btn}>
+              <Link to={'/talleres'}>Talleres</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
               <Link to={'/products'}>Productos</Link>

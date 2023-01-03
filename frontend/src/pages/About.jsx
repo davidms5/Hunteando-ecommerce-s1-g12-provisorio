@@ -34,10 +34,7 @@ const About = () => {
 
             <p>Anímate a pasar a tela, tu pedido puede ser personalizado según tus necesidades.</p>
             <p>Usá, lavá y volvé a usar.</p>
-            <p>
-              Ciclemos en telas. Tenes dudas? Escribime, te acompaño a transitar un cambio amigable. faltó este producto
-              (pack) Kit Luna Llena{' '}
-            </p>
+            <p>Ciclemos en telas. ¿Tenes dudas? Escribime, te acompaño a transitar un cambio amigable.</p>
           </div>
           <div className="about-row__2 col-12 col-md-6">
             <img src={card} alt="background" />

@@ -22,7 +22,7 @@ const Products = () => {
       ) : (
         <div className="container-products pb-5">
           <div className="container">
-            <h1 className="text-center py-5">PRODUCTOS</h1>
+            <h1 className="text-center py-4">PRODUCTOS</h1>
             <div className="row">
               {products.map((product, index) =>
                 product.IMAGEN ? (
