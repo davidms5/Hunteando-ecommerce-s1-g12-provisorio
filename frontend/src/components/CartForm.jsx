@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-// import axios from 'axios';
 import '../css/contact.css';
 import { clearCart } from '../features/cart/cartSlice.js';
 
@@ -20,7 +19,6 @@ const CartForm = ({ orden, total }) => {
     setShow(false);
     removeAllItem();
   }
-  const [send, setSend] = useState(false);
   const dataSchema = Yup.object().shape({
     name: Yup.string().required('Debe ingresar un nombre'),
     surname: Yup.string().required('Debe ingresar un apellido'),
@@ -62,7 +60,6 @@ const CartForm = ({ orden, total }) => {
             .then((e) => {
               openModal();
               resetForm();
-              setSend(true);
             });
         }}
       >
