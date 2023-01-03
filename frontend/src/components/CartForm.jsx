@@ -20,7 +20,7 @@ const CartForm = ({ orden, total }) => {
     setShow(false);
     removeAllItem();
   }
-  const [send, setSend] = useState(false);
+ // const [send, setSend] = useState(false);
   const dataSchema = Yup.object().shape({
     name: Yup.string().required('Debe ingresar un nombre'),
     surname: Yup.string().required('Debe ingresar un apellido'),
