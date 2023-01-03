@@ -1,0 +1,13 @@
+.admin__product__img {
+    text-align: center;
+
+}
+.admin__product__img img{
+    max-width: 400px;
+}
+
+@media (max-width: 992px) {
+    .admin__product__img img{
+        max-width: 280px;
+    }
+}

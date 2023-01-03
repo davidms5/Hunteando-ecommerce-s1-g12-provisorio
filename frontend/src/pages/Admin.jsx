@@ -15,16 +15,16 @@ const Admin = () => {
       <h1 className="text-center">ADMIN</h1>
       <div className="d-flex justify-content-center gap-3">
         {renderProducts ? (
-          <button onClick={changeView} className="btn button">
+          <button onClick={changeView} className="button">
             Ver ordenes
           </button>
         ) : (
-          <button onClick={changeView} className="btn button">
+          <button onClick={changeView} className="button">
             Administrar productos
           </button>
         )}
       </div>
-      {renderProducts ? <AdminProducts /> : <AdminOrders />}
+      {!renderProducts ? <AdminProducts /> : <AdminOrders />}
     </div>
   );
 };
