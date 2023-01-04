@@ -17,7 +17,6 @@ export const getProduct = (id) => {
     dispatch(setProduct({ product: data }));
   };
 };
-
 export const deleteProduct = (id) => {
   return async (dispatch) => {
     await productsApi.delete(`/products/${id}`);
