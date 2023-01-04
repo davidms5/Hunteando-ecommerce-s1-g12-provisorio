@@ -5,8 +5,6 @@ module.exports = sequelize => {
   const attributes = {
     ID_CLIENTE: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
-      defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
       comment: null,
@@ -14,8 +12,7 @@ module.exports = sequelize => {
     },
     NOMBRE: {
       type: DataTypes.STRING(100),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -23,8 +20,7 @@ module.exports = sequelize => {
     },
     DIRECCION: {
       type: DataTypes.STRING(50),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -32,8 +28,7 @@ module.exports = sequelize => {
     },
     NUMERO_CELULAR: {
       type: DataTypes.STRING(45),
-      allowNull: false,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -41,8 +36,7 @@ module.exports = sequelize => {
     },
     NUMERO_TELEFONO: {
       type: DataTypes.STRING(45),
-      allowNull: true,
-      defaultValue: null,
+      
       primaryKey: false,
       autoIncrement: false,
       comment: null,
@@ -50,8 +44,7 @@ module.exports = sequelize => {
     },
     EMAIL: {
       type: DataTypes.STRING(50),
-      allowNull: true,
-      defaultValue: null,
+     
       primaryKey: false,
       autoIncrement: false,
       comment: null,
