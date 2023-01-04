@@ -13,12 +13,8 @@ const productsSlice = createSlice({
     setProduct: (state, action) => {
       state.product = action.payload.product;
     },
-    deleteProduct: (state, action) => {
-      console.log(action.payload);
-      state.products = action.payload.products;
-    },
   },
 });
-export const { setProducts, setProduct, deleteProduct } = productsSlice.actions;
+export const { setProducts, setProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

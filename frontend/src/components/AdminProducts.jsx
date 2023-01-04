@@ -1,8 +1,7 @@
 import React from 'react';
-
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProducts, onDeleteProduct } from '../features/products/thunks';
+import { getProducts, deleteProduct } from '../features/products/thunks';
 import '../css/adminProducts.css';
 import { useState } from 'react';
 
@@ -16,9 +15,10 @@ const AdminProducts = () => {
     dispatch(getProducts());
   }, []);
 
-  const deleteProduct = (idToDelete) => {
+  const onDeleteProduct = (idToDelete) => {
     console.log(idToDelete);
-    dispatch(onDeleteProduct(idToDelete));
+    dispatch(deleteProduct(idToDelete));
+    dispatch(getProducts());
   };
 
   return (
@@ -88,7 +88,12 @@ const AdminProducts = () => {
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                 No, cerrar
               </button>
-              <button type="button" className="btn btn-danger" onClick={() => deleteProduct(idToDelete)}>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => onDeleteProduct(idToDelete)}
+                data-bs-dismiss="modal"
+              >
                 Si, eliminar
               </button>
             </div>

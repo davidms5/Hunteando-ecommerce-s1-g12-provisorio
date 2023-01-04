@@ -1,13 +1,16 @@
 import { productsApi } from '../../api/productsApi';
-import { setProducts, setProduct, deleteProduct } from './productsSlice';
+import { setProducts, setProduct } from './productsSlice';
+import { toast } from 'react-toastify';
 
 export const getProducts = () => {
   return async (dispatch) => {
     const { data } = await productsApi.get('/products');
 
     dispatch(setProducts({ products: data }));
+    console.log('getP', data);
   };
 };
+
 export const getProduct = (id) => {
   return async (dispatch) => {
     const { data } = await productsApi.get(`/products/${id}`);
@@ -16,12 +19,10 @@ export const getProduct = (id) => {
   };
 };
 
-export const onDeleteProduct = (id) => {
+export const deleteProduct = (id) => {
   return async (dispatch) => {
-    const { data } = await productsApi.delete(`/products/${id}`);
-    console.log(data);
-    const prod = await getProducts();
-    console.log(prod);
-    dispatch(setProduct({ products: prod }));
+    await productsApi.delete(`/products/${id}`);
+    toast.error('Producto eliminado', { position: 'bottom-left', autoClose: 1000 });
+    await getProducts();
   };
 };
