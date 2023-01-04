@@ -7,7 +7,6 @@ export const getProducts = () => {
     const { data } = await productsApi.get('/products');
 
     dispatch(setProducts({ products: data }));
-    console.log('getP', data);
   };
 };
 
