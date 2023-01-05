@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 require("./models/associations");
+const {cosas}=require("../modelDB/productos")
+const producto = require("../src/models/producto")(sequelize);
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -51,7 +53,7 @@ app.use("/products", require("./routes/productos"))
 app.use("/cart", require("./routes/compras"))
 
 
-
+producto.bulkcreate(cosas).then(() =>{ console.log("insertado con exito")})
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`);
 
