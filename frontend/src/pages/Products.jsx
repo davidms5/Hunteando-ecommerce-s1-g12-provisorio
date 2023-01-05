@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from '../components/Card';
 import '../css/products.css';
+import Loading from '../components/Loading';
 
 //redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +19,7 @@ const Products = () => {
   return (
     <div>
       {products.length === 0 ? (
-        <div></div>
+        <Loading />
       ) : (
         <div className="container-products pb-5">
           <div className="container">

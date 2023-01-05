@@ -3,11 +3,12 @@
 
 }
 .admin__product__img img{
-    max-width: 400px;
+    max-height: 250px;
 }
 
 @media (max-width: 992px) {
     .admin__product__img img{
         max-width: 280px;
+
     }
 }

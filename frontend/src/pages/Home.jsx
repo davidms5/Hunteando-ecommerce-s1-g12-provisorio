@@ -7,6 +7,9 @@ import { addToCart } from '../features/cart/cartSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../features/products/thunks';
+import { Link } from 'react-router-dom';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import Loading from '../components/Loading';
 
 export const Home = () => {
   const products = useSelector((state) => state.products.products);
@@ -25,24 +28,29 @@ export const Home = () => {
   return (
     <div>
       {products.length === 0 ? (
-        <p>hola</p>
+        <Loading />
       ) : (
         <div className="home">
           <div className="d-flex justify-content-center align-items-center">
             <img src={logo} alt="logo-centro" className="img-fluid logo-home" />
           </div>
           <div className="home-products">
-            <div className="container py-5">
+            <div className="container py-4">
+              <div className="d-flex justify-content-between">
+                <h2 className="h1">Destacados</h2>
+                <Link to={'/products'}>
+                  <button className="button">
+                    <AiOutlineArrowRight /> ir a productos
+                  </button>
+                </Link>
+              </div>
+
               <div className="row">
-                {bestProducts.map((product, index) =>
-                  product.IMAGEN ? (
-                    <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex justify-content-center">
-                      <Card product={product} addId={addId} />
-                    </div>
-                  ) : (
-                    ''
-                  )
-                )}
+                {bestProducts.map((product, index) => (
+                  <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex justify-content-center">
+                    <Card product={product} addId={addId} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

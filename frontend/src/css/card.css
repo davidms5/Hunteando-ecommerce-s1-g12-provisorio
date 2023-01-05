@@ -7,6 +7,7 @@
   transition: all 0.5s;
   height: 100%;
   width: 100%;
+  max-height: 350px;
 }
 .cards:hover {
   transform: scale(1.02);
@@ -35,7 +36,7 @@
 
 }
 .cards .card-body .card-button button {
-  padding: 5px 30px;
+  padding: 0px 30px;
   border: none;
   background-color: var(--color-secundary);
   border-radius: 5px;
@@ -47,4 +48,10 @@
 }
 .cards .card-body .card-button button:hover {
   transform: scaleX(1.1);
+}
+@media screen and (max-width: 600px) {
+  .cards{
+  max-height: 450px;
+
+  }
 }
