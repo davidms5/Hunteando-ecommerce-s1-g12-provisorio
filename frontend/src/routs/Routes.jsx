@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../layout/Layout';
+import LayoutAdmin from '../layout/LayoutAdmin';
 import Products from '../pages/Products';
 import { Home } from '../pages/Home';
 import { Detail } from '../pages/Detail';
@@ -25,6 +26,8 @@ const RoutComp = () => {
             <Route path="/talleres" element={<Talleres />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cart" element={<Cart />} />
+          </Route>
+          <Route path="/" element={<LayoutAdmin />}>
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />} />
           </Route>

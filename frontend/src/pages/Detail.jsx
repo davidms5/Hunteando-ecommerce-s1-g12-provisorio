@@ -5,6 +5,7 @@ import { getProduct } from '../features/products/thunks';
 import { useParams } from 'react-router-dom';
 import ItemCount from '../components/ItemCount';
 import '../css/detail.css';
+import Loading from '../components/Loading';
 
 export const Detail = () => {
   const product = useSelector((state) => state.products.product);
@@ -18,7 +19,7 @@ export const Detail = () => {
   return (
     <div>
       {!product ? (
-        <div>hola</div>
+        <Loading />
       ) : (
         <div className="container detail py-3">
           <h2>{product.NOMBRE_PRODUCTO}</h2>
@@ -32,9 +33,8 @@ export const Detail = () => {
             </div>
             <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
               <p>
-                <span className="fw-bold">Descripcion:</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Porro animi soluta facere doloremque! Dolore placeat perspiciatis facere autem ullam, accusamus
-                voluptates asperiores sequi cumque maiores suscipit error? Perferendis, architecto dolorem.
+                <span className="fw-bold">Descripción:</span>
+                {product.DESCRIPCION}
               </p>
               <span>
                 <span className="fw-bold">Existencia:</span> {product.EXISTENCIA}
