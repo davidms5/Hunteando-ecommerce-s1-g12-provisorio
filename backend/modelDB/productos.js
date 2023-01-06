@@ -1,8 +1,7 @@
 const sequelize = require("../src/config/db");
 const producto = require("../src/models/producto")(sequelize);
 //ver si hace falta el path para las imagenes
-
-export default  cosas =[
+let cosas =[
     {
         NOMBRE_PRODUCTO:"Absorbente Charcoal Bambú",
         DESCRIPCION:"",
@@ -121,3 +120,6 @@ export default  cosas =[
         PRECIO_VENTA:400
     },
 ]
+
+
+module.exports = cosas
