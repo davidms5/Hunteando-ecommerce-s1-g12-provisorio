@@ -5,13 +5,16 @@ import { getProducts, deleteProduct } from '../features/products/thunks';
 import '../css/adminProducts.css';
 import { useState } from 'react';
 import Loading from '../components/Loading';
+import AdminProductForm from './AdminProductForm';
 
 const AdminProducts = () => {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   const [idToDelete, setIdToDelete] = useState();
+  const [product, setProduct] = useState({});
 
+  const cesar = 'hola';
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -29,7 +32,10 @@ const AdminProducts = () => {
         <div className="container admin">
           <div className="d-flex justify-content-between my-3">
             <h2>Productos:</h2>
-            <button className="button bg-success">Agregar</button>
+            <button className="button bg-success" data-bs-toggle="modal" data-bs-target="#exm">
+              Agregar
+            </button>
+            <AdminProductForm product={product} cesar={cesar} />
           </div>
           {products.map((product, index) => (
             <div key={index} className="admin__product row rounded shadow-lg my-2 p-4">
@@ -59,7 +65,14 @@ const AdminProducts = () => {
                   <span className="fw-semibold">Precio: </span>${product.PRECIO_VENTA}
                 </span>
                 <div className="d-flex gap-2 justify-content-end mt-2">
-                  <button className="button ">Editar</button>
+                  <button
+                    className="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exm"
+                    onClick={() => setProduct(product)}
+                  >
+                    Editar
+                  </button>
                   <button
                     className="button bg-danger"
                     data-bs-toggle="modal"

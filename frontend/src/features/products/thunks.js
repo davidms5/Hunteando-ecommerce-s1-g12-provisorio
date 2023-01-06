@@ -18,6 +18,15 @@ export const getProduct = (id) => {
     dispatch(setProduct({ product: data }));
   };
 };
+
+export const createProduct = (product) => {
+  return async (dispatch) => {
+    const { data } = await productsApi.post(`/products/`, product);
+    toast.success('Producto agregado', { position: 'bottom-left', autoClose: 1000 });
+    console.log('producto creado', data);
+  };
+};
+
 export const deleteProduct = (id) => {
   return async (dispatch) => {
     const resp = await productsApi.delete(`/products/${id}`);
