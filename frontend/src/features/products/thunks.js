@@ -7,6 +7,7 @@ export const getProducts = () => {
     const { data } = await productsApi.get('/products');
 
     dispatch(setProducts({ products: data }));
+    console.log('listo');
   };
 };
 
@@ -17,11 +18,10 @@ export const getProduct = (id) => {
     dispatch(setProduct({ product: data }));
   };
 };
-
 export const deleteProduct = (id) => {
   return async (dispatch) => {
-    await productsApi.delete(`/products/${id}`);
+    const resp = await productsApi.delete(`/products/${id}`);
     toast.error('Producto eliminado', { position: 'bottom-left', autoClose: 1000 });
-    await getProducts();
+    console.log(resp);
   };
 };

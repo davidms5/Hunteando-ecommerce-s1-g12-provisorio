@@ -23,7 +23,7 @@ export const Card = ({ product }) => {
             />
           </div>
           <div className="card-body d-flex flex-column justify-content-between align-items-between">
-            <h4 className="text-center">{product.NOMBRE_PRODUCTO}</h4>
+            <h4 className="text-center m-0">{product.NOMBRE_PRODUCTO}</h4>
             <div className="card-description">
               <span>Precio: ${product.PRECIO_VENTA}</span>
               <div className="card-button my-2">

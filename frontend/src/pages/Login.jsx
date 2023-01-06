@@ -39,7 +39,7 @@ const Login = () => {
 
   return (
     <div className="container login-form my-4">
-      <h3 className="text-center">Iniciar Sesion</h3>
+      <h3 className="text-center">Iniciar Sesión</h3>
       <Formik initialValues={datos} validationSchema={datosSchema} onSubmit={onSubmit}>
         {({ errors, touched }) => {
           return (

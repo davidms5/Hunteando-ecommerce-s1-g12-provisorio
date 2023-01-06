@@ -5,3 +5,8 @@
     min-height: 100vh;
 
 }
+.layout-admin{
+
+    background: linear-gradient( 0deg,  #f5f5f5,#fed8d5 30%);
+    padding-bottom: 50px;
+}

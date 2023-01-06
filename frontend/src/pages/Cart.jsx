@@ -48,7 +48,7 @@ const Cart = () => {
           <div className="row">
             <h1 className="text-center my-5">DETALLES DE SU COMPRA</h1>
 
-            <div className=" col-12 col-md-6">
+            <div className="">
               <h2 className="text-center">PRODUCTOS</h2>
 
               <table className="table td-border-none ">
@@ -102,24 +102,10 @@ const Cart = () => {
               <button className="cart-button" onClick={() => removeAllItem()}>
                 Vaciar
               </button>
+              <span className="fw-bold">Precio :</span>
+              <span>${cartTotalAmount}</span>
             </div>
-            <div className=" col-12 col-md-6">
-              <div className="ticket my-3 m-md-0 p-0">
-                <h2 className="text-center">TICKET DE COMPRA</h2>
-                <form>
-                  <div className="d-flex justify-content-between my-3">
-                    <span className="fw-bold">Precio :</span>
-                    <span>${cartTotalAmount}</span>
-                  </div>
 
-                  <div className="d-flex justify-content-between my-3">
-                    <span className="fw-bold">Total</span>
-                    <span>${cartTotalAmount}</span>
-                  </div>
-                  {/* <!-- Boton de agradecimiento modal --> */}
-                </form>
-              </div>
-            </div>
             <CartForm orden={cart} total={cartTotalAmount} />
           </div>
         )}
