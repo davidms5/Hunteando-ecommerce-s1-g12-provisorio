@@ -24,7 +24,7 @@ const Admin = () => {
           </button>
         )}
       </div>
-      {renderProducts ? <AdminProducts /> : <AdminOrders />}
+      {!renderProducts ? <AdminProducts /> : <AdminOrders />}
     </div>
   );
 };
