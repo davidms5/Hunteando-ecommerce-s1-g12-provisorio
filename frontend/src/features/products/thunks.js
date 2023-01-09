@@ -27,6 +27,15 @@ export const createProduct = (product) => {
   };
 };
 
+export const editProduct = (product) => {
+  return async (dispatch) => {
+    console.log(product);
+    const { data } = await productsApi.patch(`/products/${product.ID_PRODUCTO}`, product);
+    toast.success('Producto editado', { position: 'bottom-left', autoClose: 1000 });
+    console.log('producto editado', data);
+  };
+};
+
 export const deleteProduct = (id) => {
   return async (dispatch) => {
     const resp = await productsApi.delete(`/products/${id}`);
