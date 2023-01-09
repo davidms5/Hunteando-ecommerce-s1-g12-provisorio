@@ -5,7 +5,7 @@ import { getProducts, deleteProduct, createProduct, editProduct } from '../featu
 import '../css/adminProducts.css';
 import { useState } from 'react';
 import Loading from '../components/Loading';
-// import AdminProductForm from './AdminProductForm';
+// import AdminProductForm from './AdminProductForm'; Componetizar una vez implementada las funciones correctamente.
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from './Button';
@@ -13,23 +13,28 @@ import Button from './Button';
 const AdminProducts = () => {
   const { products } = useSelector((state) => state.products);
   const [show, setShow] = useState(false);
+  const [edit, setEdit] = useState(false);
 
   const dispatch = useDispatch();
 
   const [idToDelete, setIdToDelete] = useState();
   const [product, setProduct] = useState({});
 
-  function openModal(prod) {
-    setProduct(prod);
-    setShow(true);
-    console.log(product);
-  }
-  const edit = () => {
+  const openModal = () => {
     setShow(true);
   };
-  function closeModal() {
+  const closeModal = () => {
     setShow(false);
-  }
+    setEdit(false);
+  };
+  const editModal = (prod) => {
+    setEdit(true);
+    setProduct(prod);
+    console.log(product);
+
+    setShow(true);
+  };
+
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -66,7 +71,7 @@ const AdminProducts = () => {
             <button
               className="button bg-success"
               onClick={() => {
-                edit();
+                openModal();
               }}
             >
               Agregar
@@ -104,7 +109,7 @@ const AdminProducts = () => {
                   <button
                     className="button"
                     onClick={() => {
-                      openModal(product);
+                      editModal(product);
                     }}
                   >
                     Editar
@@ -179,8 +184,29 @@ const AdminProducts = () => {
                     initialValues={formData}
                     validationSchema={dataSchema}
                     onSubmit={(values, { resetForm }) => {
+                      console.log(edit);
+                      if (edit) {
+                        const prod = {
+                          ID_PRODUCTO: product.ID_PRODUCTO,
+                          NOMBRE_PRODUCTO: values.name,
+                          DESCRIPCION: values.description,
+                          PRECIO_VENTA: values.price,
+                          DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
+                          IMAGEN: 'https://i.ibb.co/M6wQCqV/Neceser.jpg',
+                        };
+                        console.log('product', product);
+                        console.log('valores', values);
+
+                        dispatch(editProduct(prod)).then(() => {
+                          resetForm();
+                          dispatch(getProducts());
+                        });
+                        resetForm();
+                        closeModal();
+                        return;
+                      }
+
                       const prod = {
-                        ID_PRODUCTO: product.ID_PRODUCTO,
                         NOMBRE_PRODUCTO: values.name,
                         DESCRIPCION: values.description,
                         PRECIO_VENTA: values.price,
@@ -190,7 +216,7 @@ const AdminProducts = () => {
                       console.log('product', product);
                       console.log('valores', values);
 
-                      dispatch(editProduct(prod)).then(() => {
+                      dispatch(createProduct(prod)).then(() => {
                         resetForm();
                         dispatch(getProducts());
                       });
