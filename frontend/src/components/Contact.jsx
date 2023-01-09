@@ -28,16 +28,6 @@ const Contact = () => {
         initialValues={datos}
         validationSchema={datosSchema}
         onSubmit={(values, { resetForm }) => {
-          // axios({
-          //   method: "post",
-          //   url: "http://localhost:8080/api/user",
-          //   data: {
-          //     name: values.name,
-          //     surname: values.surname,
-          //     email: values.email,
-          //     message: values.message,
-          //   },
-          // });
           console.log(values);
           console.log('Enviado');
           resetForm();

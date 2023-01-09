@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ItemCount from './ItemCount';
 import '../css/card.css';
+import Loading from './Loading';
 
 /* Creo un nuevo objeto product con datos falsos para poder pintar mientras el backend nos disponibiliza la API real.   */
 
@@ -12,7 +13,7 @@ export const Card = ({ product }) => {
   return (
     <div className="p-1 w-100 h-100">
       {!product ? (
-        <div>HOla</div>
+        <Loading />
       ) : (
         <div className="cards h-100 pb-2">
           <div onClick={() => navigate(`/detail/${product.ID_PRODUCTO}`)} className="card-header">
@@ -23,9 +24,9 @@ export const Card = ({ product }) => {
             />
           </div>
           <div className="card-body d-flex flex-column justify-content-between align-items-between">
-            <h4 className="text-center m-0">{product.NOMBRE_PRODUCTO}</h4>
+            <span className="text-center h4 m-0">{product.NOMBRE_PRODUCTO}</span>
             <div className="card-description">
-              <span>Precio: ${product.PRECIO_VENTA}</span>
+              <span className="h5">Precio: ${product.PRECIO_VENTA}</span>
               <div className="card-button my-2">
                 <ItemCount product={product} />
               </div>

@@ -102,7 +102,7 @@ const Cart = () => {
               <button className="cart-button" onClick={() => removeAllItem()}>
                 Vaciar
               </button>
-              <span className="fw-bold">Precio :</span>
+              <span className="fw-bold ms-2">Precio total: </span>
               <span>${cartTotalAmount}</span>
             </div>
 

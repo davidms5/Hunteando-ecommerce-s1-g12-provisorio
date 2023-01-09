@@ -21,3 +21,8 @@ particular
 
 
 los endpoints de la tabla carrito se acceden de la misma manera que /products, solo hay que cambiarlo a que diga "/cart"
+
+en el archivo prueba.js en la carpeta src de backend, solo descomentando la linea 56, agrega todos los productos (al menos los que tenian la foto con el valor y el nombre, mas tarde le pido a la clienta las demas descripciones si le es posible)
+
+
+Dentro de backend, en la carpeta modelDB esta el archivo productos.js, en una lista estan los productos que se insertan en la base de datos automaticamente (con la base de datos actualizada)
