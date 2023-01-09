@@ -34,7 +34,13 @@ const crearProducto = async(req, res) =>{
  
 const actualizarProducto = async(req, res) =>{
     try {
-        await productos.update(req.body,{
+        await productos.update(
+            {NOMBRE_PRODUCTO:req.body.NOMBRE_PRODUCTO,
+            DESCRIPCION:req.body.DESCRIPCION,
+            IMAGEN: req.body.IMAGEN,
+            PRECIO_VENTA:req.body.PRECIO_VENTA,
+            DESCUENTO:req.body.DESCUENTO},
+            {
             where:{
                 ID_PRODUCTO: req.params.ID_PRODUCTO
             }
