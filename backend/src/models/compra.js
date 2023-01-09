@@ -57,10 +57,7 @@ module.exports = (sequelize) => {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
     },
-    //MEDIO_DE_PAGO: {
-    //    type: Sequelize.STRING,
-    //    allowNull: false // modificar este campo para que acepte medios de pago en especifico
-    //}
+    
   });
 
   return compras;
