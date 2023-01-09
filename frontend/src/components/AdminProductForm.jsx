@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from './Button';
@@ -7,7 +7,10 @@ import { createProduct, getProducts } from '../features/products/thunks';
 
 const AdminProductForm = ({ product }) => {
   const { NOMBRE_PRODUCTO, DESCRIPCION, PRECIO_VENTA, IMAGEN } = product;
+  const [show, setShow] = useState(false);
+
   const dispatch = useDispatch();
+
   const dataSchema = Yup.object().shape({
     name: Yup.string().required('Debes ingresar un nombre para el producto.'),
     description: Yup.string(),
@@ -26,9 +29,8 @@ const AdminProductForm = ({ product }) => {
 
   return (
     <div
-      className="modal fade"
+      className={show ? 'modal modal-lg fade show' : 'modal fade'}
       id="exm"
-      data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
