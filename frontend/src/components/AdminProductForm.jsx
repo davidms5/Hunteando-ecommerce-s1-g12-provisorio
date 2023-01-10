@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from './Button';
 import { useDispatch } from 'react-redux';
 import { createProduct, getProducts } from '../features/products/thunks';
 
-const AdminProductForm = ({ product }) => {
+const AdminProductForm = ({ product, edit }) => {
   const { NOMBRE_PRODUCTO, DESCRIPCION, PRECIO_VENTA, IMAGEN } = product;
+  const [show, setShow] = useState(false);
+
   const dispatch = useDispatch();
+
   const dataSchema = Yup.object().shape({
     name: Yup.string().required('Debes ingresar un nombre para el producto.'),
     description: Yup.string(),
@@ -24,11 +27,40 @@ const AdminProductForm = ({ product }) => {
     image: IMAGEN ? IMAGEN : '',
   };
 
+  const toSubmit = (values, { resetForm }) => {
+    // console.log('product', product);
+    // console.log('valores', values);
+    if (edit) {
+      const editProduct = {
+        NOMBRE_PRODUCTO: values.name,
+        DESCRIPCION: values.description,
+        PRECIO_VENTA: values.price,
+        DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
+        IMAGEN: 'https://i.ibb.co/M6wQCqV/Neceser.jpg',
+      };
+      dispatch(createProduct(editProduct)).then(() => {
+        resetForm();
+        dispatch(getProducts());
+      });
+      return;
+    }
+    const newProduct = {
+      NOMBRE_PRODUCTO: values.name,
+      DESCRIPCION: values.description,
+      PRECIO_VENTA: values.price,
+      DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
+      IMAGEN: values.image,
+    };
+    dispatch(createProduct(newProduct)).then(() => {
+      resetForm();
+      dispatch(getProducts());
+    });
+  };
+
   return (
     <div
-      className="modal fade"
+      className={show ? 'modal modal-lg fade show' : 'modal fade'}
       id="exm"
-      data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
@@ -42,27 +74,7 @@ const AdminProductForm = ({ product }) => {
             </h1>
           </div>
           <div className="modal-body contact">
-            <Formik
-              initialValues={formData}
-              validationSchema={dataSchema}
-              onSubmit={(values, { resetForm }) => {
-                const product = {
-                  NOMBRE_PRODUCTO: values.name,
-                  DESCRIPCION: values.description,
-                  PRECIO_VENTA: values.price,
-                  DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
-                  IMAGEN: values.image,
-                };
-                console.log('product', product);
-                console.log('valores', values);
-
-                dispatch(createProduct(product)).then(() => {
-                  resetForm();
-                  dispatch(getProducts());
-                });
-                resetForm();
-              }}
-            >
+            <Formik initialValues={formData} validationSchema={dataSchema} onSubmit={toSubmit()}>
               {({ errors, touched }) => {
                 return (
                   <Form>
