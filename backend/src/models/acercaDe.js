@@ -1,7 +1,7 @@
 const {Sequelize} = require("sequelize");
 
 module.exports = (sequelize) => {
-    const usuario = sequelize.define("acercaDe", {
+    const acercaDe = sequelize.define("acercaDe", {
 
         ID:{
             type: Sequelize.INTEGER,
@@ -16,10 +16,12 @@ module.exports = (sequelize) => {
         },
 
         CONTENIDO:{
-            type: Sequelize.MEDIUMTEXT,
+            type: Sequelize.TEXT,
             allowNull: true,
         },
 
         
     })
+
+    return acercaDe;
 }

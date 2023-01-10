@@ -1,6 +1,6 @@
 const sequelize = require("../config/db");
 
-const acercaDe = require("../models/acercaDe")(sequelize)
+const acercaDe = require("../models/acercaDe")(sequelize);
 
 const getAcercaDe =async(req, res) =>{
     try {
@@ -46,4 +46,4 @@ const borrarAcercaDe = async(req, res) =>{
     }
 }
 
-module.exports = {getAcercaDe, actualizarAcercaDe, borrarAcercaDe}
+module.exports = {getAcercaDe, actualizarAcercaDe, borrarAcercaDe, crearAcercaDe}
