@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import RoutComp from './routs/Routes';
+import RoutesComp from './router/Routes';
 import { getTotals } from './features/cart/cartSlice';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-      <RoutComp />
+      <RoutesComp />
     </>
   );
 }

@@ -10,7 +10,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from './Button';
 
-const AdminProducts = () => {
+export const AdminTexts = () => {
   const { products } = useSelector((state) => state.products);
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
@@ -43,9 +43,7 @@ const AdminProducts = () => {
   };
 
   const dataSchema = Yup.object().shape({
-    name: Yup.string()
-      .max(40, 'El nombre debe tener menos de 40 caracteres.')
-      .required('Debes ingresar un nombre para el producto.'),
+    name: Yup.string().required('Debes ingresar un nombre para el producto.'),
     description: Yup.string(),
     price: Yup.number('Este campo solo admite numeros.')
       .required('Debes ingresar el precio del producto.')
@@ -271,5 +269,3 @@ const AdminProducts = () => {
     </>
   );
 };
-
-export default AdminProducts;

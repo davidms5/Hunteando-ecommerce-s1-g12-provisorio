@@ -38,7 +38,7 @@ export const Home = () => {
             <div className="container py-4">
               <div className="d-flex justify-content-between">
                 <h2 className="h1">Destacados</h2>
-                <Link to={'/products'}>
+                <Link to={'/productos'}>
                   <button className="button">
                     <AiOutlineArrowRight /> ir a productos
                   </button>
