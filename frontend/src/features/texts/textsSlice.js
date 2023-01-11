@@ -3,18 +3,20 @@ import { createSlice } from '@reduxjs/toolkit';
 const textsSlice = createSlice({
   name: 'texts',
   initialState: {
-    texts: [
-      {
+    texts: {
+      acercaDe: {
         id: 1,
-        title: 'Acerca de',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit dignissimos nam sapiente corporis dolorum. Error excepturi esse incidunt, dolores dolor facilis delectus, qui similique sapiente itaque nobis culpa, repellat nisi!',
+        TITULO: 'Acerca de',
+        TEXTO:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit dignissimos nam sapiente corporis dolorum. Error excepturi esse incidunt, dolores dolor facilis delectus, qui similique sapiente itaque nobis culpa, repellat nisi!',
       },
-      {
+      talleres: {
         id: 2,
-        title: 'Acerca de',
-        text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit dignissimos nam sapiente corporis dolorum. Error excepturi esse incidunt, dolores dolor facilis delectus, qui similique sapiente itaque nobis culpa, repellat nisi!',
+        TITULO: 'Talleres',
+        TEXTO:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit dignissimos nam sapiente corporis dolorum. Error excepturi esse incidunt, dolores dolor facilis delectus, qui similique sapiente itaque nobis culpa, repellat nisi!',
       },
-    ],
+    },
   },
   reducers: {
     setTexts: (state, action) => {
