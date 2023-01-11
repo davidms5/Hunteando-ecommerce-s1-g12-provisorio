@@ -50,13 +50,13 @@ const NavBar = () => {
               <Link to={'/'}>Inicio</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
-              <Link to={'/about'}>Acerca de</Link>
+              <Link to={'/acerca-de'}>Acerca de</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
               <Link to={'/talleres'}>Talleres</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
-              <Link to={'/products'}>Productos</Link>
+              <Link to={'/productos'}>Productos</Link>
             </li>
             <li className="mobile-li" onClick={btn}>
               <Link to={'/cart'}>
