@@ -1,30 +1,22 @@
 import React from 'react';
-import AdminProducts from '../components/AdminProducts';
-import AdminOrders from '../components/AdminOrders';
-import { useState } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 
 const Admin = () => {
-  const [renderProducts, setRenderProducts] = useState(false);
-
-  const changeView = () => {
-    console.log('das');
-    setRenderProducts(!renderProducts);
-  };
   return (
     <div className="d-flex flex-column justify-content-center">
       <h1 className="text-center">ADMIN</h1>
       <div className="d-flex justify-content-center gap-3">
-        {renderProducts ? (
-          <button onClick={changeView} className="button">
-            Ver ordenes
-          </button>
-        ) : (
-          <button onClick={changeView} className="button">
-            Administrar productos
-          </button>
-        )}
+        <Link to="productos" className="button">
+          Productos
+        </Link>
+        <Link to="ordenes" className="button">
+          Ordenes
+        </Link>
+        <Link to="textos" className="button">
+          Textos
+        </Link>
       </div>
-      {!renderProducts ? <AdminProducts /> : <AdminOrders />}
+      <Outlet />
     </div>
   );
 };

@@ -1,8 +1,8 @@
 .cards {
   border-radius: 5px;
   background-color: #FED8D5;
-  color: #fff;
-  text-shadow: 1px 2px 2px #010101;
+  color: #004;
+  /* text-shadow: 1px 2px 2px #010101; */
   box-shadow: 1px 2px 10px #010101 ;
   transition: all 0.5s;
   height: 100%;

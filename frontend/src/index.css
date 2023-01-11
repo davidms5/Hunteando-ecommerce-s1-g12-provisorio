@@ -21,6 +21,10 @@ p, div, span{
   font-size: 1.02em;
 }
 
+a{
+  text-decoration: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

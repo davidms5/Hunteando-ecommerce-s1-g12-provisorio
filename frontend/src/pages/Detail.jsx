@@ -21,17 +21,17 @@ export const Detail = () => {
       {!product ? (
         <Loading />
       ) : (
-        <div className="container detail py-3">
-          <h2>{product.NOMBRE_PRODUCTO}</h2>
-          <div className="row">
-            <div className="col-12 col-md-6 img-fluid ">
+        <div className="container detail  py-3">
+          <h2 className="text-center h1">{product.NOMBRE_PRODUCTO}</h2>
+          <div className="row  justify-sm-content-center ">
+            <div className="col-12 col-md-6  text-center img-fluid detail-img">
               <img
                 className="detail__img img-fluid rounded "
                 src={product.IMAGEN ? product.IMAGEN : require('../assets/no-disponible.png')}
                 alt={product.NOMBRE_PRODUCTO}
               />
             </div>
-            <div className="detail__info col-12 col-md-6 d-flex flex-column justify-content-end">
+            <div className="detail__info col-12 col-md-6 pt-1 d-flex flex-column justify-content-end">
               <p>
                 <span className="fw-bold">Descripción:</span>
                 {product.DESCRIPCION}
