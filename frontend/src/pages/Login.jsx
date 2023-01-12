@@ -24,7 +24,6 @@ const Login = () => {
     if (values.email === admin.email && values.pass === admin.pass) {
       navigate('/admin');
     }
-    console.log('Enviado', values);
     resetForm();
     setCredentials(false);
     setTimeout(() => {

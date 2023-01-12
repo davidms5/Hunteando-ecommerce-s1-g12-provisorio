@@ -16,7 +16,7 @@ export const Card = ({ product }) => {
         <Loading />
       ) : (
         <div className="cards h-100 pb-2">
-          <div onClick={() => navigate(`/detail/${product.ID_PRODUCTO}`)} className="card-header">
+          <div onClick={() => navigate(`/detalle/${product.ID_PRODUCTO}`)} className="card-header">
             <img
               className="img-fluid card-header-img"
               src={product.IMAGEN ? product.IMAGEN : require('../assets/no-disponible.png')}
@@ -24,7 +24,7 @@ export const Card = ({ product }) => {
             />
           </div>
           <div className="card-body d-flex flex-column justify-content-between align-items-between">
-            <span className="text-center h4 m-0">{product.NOMBRE_PRODUCTO}</span>
+            <span className="fw-semibold text-center h5 m-0">{product.NOMBRE_PRODUCTO}</span>
             <div className="card-description">
               <span className="h5">Precio: ${product.PRECIO_VENTA}</span>
               <div className="card-button my-2">
