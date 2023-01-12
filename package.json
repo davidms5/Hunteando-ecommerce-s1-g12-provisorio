@@ -22,6 +22,7 @@
     "nodemon": "^2.0.20",
     "sequelize": "^6.28.0",
     "sequelize-automate": "^1.2.2",
-    "sequelize-cli": "^6.5.2"
+    "sequelize-cli": "^6.5.2",
+    "sharp": "^0.31.3"
   }
 }

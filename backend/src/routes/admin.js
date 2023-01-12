@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.post("/admin/user", (req, res) =>{
 
-    const {password} = req.body;
+    const {PASSWORD} = req.body;
     
     bcrypt.genSalt(10, (err, salt) =>{
 
-        bcrypt.hash(password, salt, (err, hash) =>{
+        bcrypt.hash(PASSWORD, salt, (err, hash) =>{
 
             const user = {
                 USUARIO_NOMBRE: req.body.USUARIO_NOMBRE,

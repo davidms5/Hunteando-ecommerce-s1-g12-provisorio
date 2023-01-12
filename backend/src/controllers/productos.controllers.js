@@ -1,5 +1,17 @@
 const sequelize = require("../config/db");
 const productos = require("../models/producto")(sequelize)
+const multer = require('multer')
+const sharp = require('sharp')
+
+const upload = multer({
+   
+    fileFilter(req, file, cb) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+            return cb(new Error('Please upload a valid image file'))
+        }
+        cb(undefined, true)
+    }
+})
 
 const getproductos = async(req, res) =>{
     try {
@@ -23,14 +35,14 @@ const getProductosById = async(req, res) =>{
     }
 }
  
-const crearProducto = async(req, res) =>{
+const crearProducto = (upload.single('upload'), async(req, res) =>{//prueba
     try {
         await productos.create(req.body);
         res.status(201).json({msg: "producto creado"});
     } catch (error) {
         console.log(error.message);
     }
-}
+})
  
 const actualizarProducto = async(req, res) =>{
     try {
