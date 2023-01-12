@@ -57,7 +57,7 @@ app.use("/cart", require("./routes/compras"))
 app.use("/admin", require("./routes/admin"))
 
 
-producto.bulkCreate(cosas).then(() =>{ console.log("insertado con exito")})
+//producto.bulkCreate(cosas).then(() =>{ console.log("insertado con exito")})
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`);
 
