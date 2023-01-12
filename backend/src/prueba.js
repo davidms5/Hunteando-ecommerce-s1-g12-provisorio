@@ -53,6 +53,8 @@ app.use("/acercaDe", require("./routes/acercaDe"))
 app.use("/products", require("./routes/productos"))
 //endpoints carrito
 app.use("/cart", require("./routes/compras"))
+//endpoints admin
+app.use("/admin", require("./routes/admin"))
 
 
 //producto.bulkCreate(cosas).then(() =>{ console.log("insertado con exito")})

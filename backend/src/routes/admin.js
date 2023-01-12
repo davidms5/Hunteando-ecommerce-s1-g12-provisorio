@@ -5,7 +5,7 @@ const usuario = require("../models/usuario")(sequelize);
 const express = require("express");
 const router = express.Router();
 
-router.post("/admin/user", (req, res) =>{
+router.post("/user", (req, res) =>{
 
     const {PASSWORD} = req.body;
     
@@ -25,7 +25,7 @@ router.post("/admin/user", (req, res) =>{
     })
 })
 
-router.get("/admin", (req, res) =>{
+router.get("/user", (req, res) =>{
 
     const {USUARIO_NOMBRE} = req.params;
     const {PASSWORD}= req.query;
