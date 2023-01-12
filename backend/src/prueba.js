@@ -45,7 +45,7 @@ app.use("/posts", require("./routes/post"))
 
 
 // middleware para usar el contenido de la carpeta "frontend"
-app.use(express.static("frontend")) 
+app.use(express.static("imagenes")) 
 
 //endpoints acerca de
 app.use("/acercaDe", require("./routes/acercaDe"))
