@@ -44,7 +44,7 @@ Sequelize.authenticate()//
 app.use("/posts", require("./routes/post"))
 
 
-// middleware para usar el contenido de la carpeta "frontend"
+// middleware para usar el contenido de la carpeta "imagenes"
 app.use(express.static("imagenes")) 
 
 //endpoints acerca de

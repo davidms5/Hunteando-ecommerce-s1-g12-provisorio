@@ -22,7 +22,7 @@
   },
   "scripts": {
 
-    "start": "react-scriptsstart",
+    "start": "react-scripts start",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
