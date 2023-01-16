@@ -34,6 +34,13 @@ module.exports = sequelize => {
       comment: null,
       field: "IMAGEN"
     },
+
+    IMAGEN_DATA:{
+      type: DataTypes.BLOB('long'),
+      primaryKey: false,
+      autoIncrement: false,
+      field: "IMAGEN_DATA"
+    },
    
     
     PRECIO_VENTA: {
