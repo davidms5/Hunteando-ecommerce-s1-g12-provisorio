@@ -64,10 +64,10 @@ const AdminProducts = () => {
 
   const selectedHandler = (e) => {
     setFile(e.target.files[0]);
-  };
+    const formdata = new FormData();
 
-  const imageData = new FormData();
-  imageData.append('image', file);
+    formdata.append('image', file);
+  };
 
   return (
     <>
@@ -217,13 +217,14 @@ const AdminProducts = () => {
                         return;
                       }
                       console.log(values);
+                      console.log(file);
                       const prod = {
                         NOMBRE_PRODUCTO: values.name,
                         DESCRIPCION: values.description,
                         PRECIO_VENTA: values.price,
                         DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
                         // IMAGEN: 'https://i.ibb.co/M6wQCqV/Neceser.jpg',
-                        IMAGEN: imageData,
+                        IMAGEN: file,
                       };
                       console.log(prod);
 
