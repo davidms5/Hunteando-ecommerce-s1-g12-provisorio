@@ -12,8 +12,10 @@ import Button from './Button';
 
 const AdminProducts = () => {
   const { products } = useSelector((state) => state.products);
+
   const [show, setShow] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [file, setFile] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -50,14 +52,21 @@ const AdminProducts = () => {
     price: Yup.number('Este campo solo admite numeros.')
       .required('Debes ingresar el precio del producto.')
       .positive('El precio debe ser un valor positivo.'),
-    image: Yup.mixed().required('Debes subir una imagen.'),
+    // image: Yup.mixed().required('Debes subir una imagen.'),
   });
 
   const formData = {
     name: product.NOMBRE_PRODUCTO ? product.NOMBRE_PRODUCTO : '',
     description: product.DESCRIPCION ? product.DESCRIPCION : '',
     price: product.PRECIO_VENTA ? product.PRECIO_VENTA : '',
-    image: '',
+    image: product.IMAGEN ? null : '',
+  };
+
+  const selectedHandler = (e) => {
+    setFile(e.target.files[0]);
+    const formdata = new FormData();
+
+    formdata.append('image', file);
   };
 
   return (
@@ -207,14 +216,17 @@ const AdminProducts = () => {
                         closeModal();
                         return;
                       }
-
+                      console.log(values);
+                      console.log(file);
                       const prod = {
                         NOMBRE_PRODUCTO: values.name,
                         DESCRIPCION: values.description,
                         PRECIO_VENTA: values.price,
                         DESCUENTO: 10, // esto se eliminara una vez optimizada la DB
-                        IMAGEN: 'https://i.ibb.co/M6wQCqV/Neceser.jpg',
+                        // IMAGEN: 'https://i.ibb.co/M6wQCqV/Neceser.jpg',
+                        IMAGEN: file,
                       };
+                      console.log(prod);
 
                       dispatch(createProduct(prod)).then(() => {
                         resetForm();
@@ -224,7 +236,7 @@ const AdminProducts = () => {
                       closeModal();
                     }}
                   >
-                    {({ errors, touched }) => {
+                    {({ errors, touched, setFieldValue }) => {
                       return (
                         <Form>
                           <div className="d-flex flex-column my-4 position-relative">
@@ -246,8 +258,7 @@ const AdminProducts = () => {
 
                           <div className="d-flex flex-column my-4 position-relative">
                             <label htmlFor="image">Imagen</label>
-                            <Field type="file" name="image" />
-                            {touched.image ? <div className="error">{errors.image}</div> : <></>}
+                            <input type="file" name="image" onChange={selectedHandler} />
                           </div>
                           <div className="modal-footer d-flex justify-content-between position-relative">
                             <button type="reset" onClick={() => closeModal()} className="button bg-secondary">
