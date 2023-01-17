@@ -15,7 +15,7 @@ const diskstorage = multer.diskStorage({
 const upload = multer({
    
     storage: diskstorage
-}).single('') //preguntar a front que nombre recibiria la image
+}).single('image') //preguntar a front que nombre recibiria la image
 
 const getproductos = async(req, res) =>{
     try {
