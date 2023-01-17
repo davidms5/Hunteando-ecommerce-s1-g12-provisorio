@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 require("./models/associations");
+const cosas = require("./productos")
+const producto = require("../src/models/producto")(Sequelize);
 //configurando el puerto
 const {PORT} = require("./config/config");
 
@@ -42,16 +44,20 @@ Sequelize.authenticate()//
 app.use("/posts", require("./routes/post"))
 
 
-// middleware para usar el contenido de la carpeta "frontend"
-app.use(express.static("frontend")) 
+// middleware para usar el contenido de la carpeta "imagenes"
+app.use(express.static(path.join(__dirname,"imagenes"))) 
 
+//endpoints acerca de
+app.use("/acercaDe", require("./routes/acercaDe"))
 //endpoints productos
 app.use("/products", require("./routes/productos"))
 //endpoints carrito
 app.use("/cart", require("./routes/compras"))
+//endpoints admin
+app.use("/admin", require("./routes/admin"))
 
 
-
+//producto.bulkCreate(cosas).then(() =>{ console.log("insertado con exito")})
 app.listen(PORT, () =>{
     console.log(`proceso iniciado en puerto ${PORT}`);
 

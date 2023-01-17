@@ -3,7 +3,7 @@ const compras = require('../models/compra')(sequelize);
 const productos_comprados = require('../models/productos_comprados')(sequelize);
 
 const getCompras = async (req, res) => {
-  try {
+  try { //mandar por fecha del mas reciente al mas antiguo
     const response = await compras.findAll();
     res.status(200).json(response);
   } catch (error) {
