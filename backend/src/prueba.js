@@ -1,7 +1,6 @@
 //importaciones
 const express = require("express");
 const Sequelize = require("./config/db");
-const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 require("./models/associations");
@@ -35,12 +34,6 @@ Sequelize.authenticate()//
 
 //--------------------------------------------------base de datos -----------------------------------//
  
- 
-
-//app.use("/", (req, res) => {
-//    res.send("<h1> vista de prueba</h1>")
-//})
-
 app.use("/posts", require("./routes/post"))
 
 

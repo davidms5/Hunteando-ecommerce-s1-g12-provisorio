@@ -35,12 +35,12 @@ module.exports = sequelize => {
       field: "IMAGEN"
     },
 
-    IMAGEN_DATA:{
-      type: DataTypes.BLOB('long'),
-      primaryKey: false,
-      autoIncrement: false,
-      field: "IMAGEN_DATA"
-    },
+    //IMAGEN_DATA:{
+    //  type: DataTypes.BLOB('long'),
+    //  primaryKey: false,
+    //  autoIncrement: false,
+    //  field: "IMAGEN_DATA"
+    //},
    
     
     PRECIO_VENTA: {
