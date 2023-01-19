@@ -58,7 +58,7 @@ const getProductosById = async(req, res) =>{
     }
 }
  
-const crearProducto = (upload, async(req, res) =>{//prueba
+const crearProducto =  async(req, res) =>{//prueba
     try {
        //const imagen_data = fs.readFileSync(path.join(__dirname, '../imagenes' + req.file.filename))
 
@@ -73,7 +73,7 @@ const crearProducto = (upload, async(req, res) =>{//prueba
     } catch (error) {
         console.log(error.message);
     }
-})
+}
  
 const actualizarProducto = async(req, res) =>{
     try {
