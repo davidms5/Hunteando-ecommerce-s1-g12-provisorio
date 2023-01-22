@@ -19,29 +19,31 @@ const upload = multer({
 
 const getproductos = async(req, res) =>{
     try {
-        let respuesta =[]
+        //let respuesta =[]
        // const {IMAGEN_DATA} = await productos.findAll();
         const response = await productos.findAll();
-
-        response.map( item =>{
-           fs.writeFileSync(path.join(__dirname, '../dbImagenes' + item.IMAGEN + '.jpg'), item.IMAGEN_DATA ) 
-           const imageDir = fs.readFileSync(path.join(__dirname, '../dbImagenes' + item.IMAGEN + '.jpg'))
-           
-           respuesta.push({
-            ID_PRODUCTO: item.ID_PRODUCTO, 
-            NOMBRE_PRODUCTO: item.NOMBRE_PRODUCTO,
-            DESCRIPCION: item.DESCRIPCION,
-            IMAGEN: imageDir,
-            PRECIO_VENTA: item.PRECIO_VENTA,
-            DESCUENTO: item.DESCUENTO
-           })
+        //if (response.IMAGEN === (path.join(__dirname, `../imagenes/${response.IMAGEN}`))){
+        //    res.status(200).json(response);
+        //}
+        //response.map( item =>{
+        //   fs.writeFileSync(path.join(__dirname, '../dbImagenes' + item.IMAGEN + '.jpg'), item.IMAGEN_DATA ) 
+        //   const imageDir = fs.readFileSync(path.join(__dirname, '../dbImagenes' + item.IMAGEN + '.jpg'))
+        //   
+        //   respuesta.push({
+        //    ID_PRODUCTO: item.ID_PRODUCTO, 
+        //    NOMBRE_PRODUCTO: item.NOMBRE_PRODUCTO,
+        //    DESCRIPCION: item.DESCRIPCION,
+        //    IMAGEN: imageDir,
+        //    PRECIO_VENTA: item.PRECIO_VENTA, 
+        //    DESCUENTO: item.DESCUENTO
+          
            //respuesta["ID_PRODUCTO"] = item.ID_PRODUCTO 
            //respuesta["NOMBRE_PRODUCTO"] = item.NOMBRE_PRODUCTO
            //respuesta["DESCRIPCION"] = item.DESCRIPCION
            //respuesta["IMAGEN"] = imageDir
            //respuesta["PRECIO_VENTA"] = item.PRECIO_VENTA
            //respuesta["DESCUENTO"] = item.DESCUENTO
-        })
+        
         //revisar el response de arriba
         
         
