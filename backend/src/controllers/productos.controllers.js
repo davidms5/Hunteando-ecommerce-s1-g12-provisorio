@@ -5,17 +5,17 @@ const path =require("path")
 const fs = require('fs')
 
 
-const diskstorage = multer.diskStorage({
-    destination: path.join(__dirname, "../imagenes"),
-    filename: function(req, file, cb){
-        cb(null, Date.now() + '-' + file.originalname)
-    }
-})
+//const diskstorage = multer.diskStorage({
+//    destination: path.join(__dirname, "../imagenes"),
+//    filename: function(req, file, cb){
+//        cb(null, Date.now() + '-' + file.originalname)
+//    }
+//})
 
-const upload = multer({
-   
-    storage: diskstorage
-}).single('image') //preguntar a front que nombre recibiria la image
+//const upload = multer({
+//   
+//    storage: diskstorage
+//}).single('image') //preguntar a front que nombre recibiria la image
 
 const getproductos = async(req, res) =>{
     try {
@@ -67,22 +67,22 @@ const getProductosById = async(req, res) =>{
     }
 }
  
-const crearProducto = (upload, async(req, res) =>{//prueba
+const crearProducto =  async(req, res) =>{//prueba
     try {
-       const imagen_data = fs.readFileSync(path.join(__dirname, '../imagenes' + req.file.filename))
+       //const imagen_data = fs.readFileSync(path.join(__dirname, '../imagenes' + req.file.filename))
 
         await productos.create({
             NOMBRE_PRODUCTO: req.body.NOMBRE_PRODUCTO,
             DESCRIPCION: req.body.DESCRIPCION,
             PRECIO_VENTA: req.body.PRECIO_VENTA,
             IMAGEN: req.body.IMAGEN,
-            IMAGEN_DATA: imagen_data
+            //IMAGEN_DATA: imagen_data
         });
         res.status(201).json({msg: "producto creado"});
     } catch (error) {
         console.log(error.message);
     }
-})
+}
  
 const actualizarProducto = async(req, res) =>{
     try {

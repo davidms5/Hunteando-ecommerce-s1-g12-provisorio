@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../assets/footer.png';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { BsInstagram, BsFacebook, BsWhatsapp } from 'react-icons/bs';
-import { GrUserAdmin } from 'react-icons/gr';
+// import { GrUserAdmin } from 'react-icons/gr';
 
 import '../css/footer.css';
 import Contact from '../components/Contact';
@@ -45,11 +45,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="m-3">
+      {/* <div className="m-3">
         <Link to={'/login'}>
           <GrUserAdmin className="rede" />
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
